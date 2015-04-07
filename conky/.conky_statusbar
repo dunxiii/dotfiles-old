@@ -1,0 +1,80 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+update_interval 2.0
+total_run_times 0
+short_units yes
+if_up_strictness address
+use_spacer left
+override_utf8_locale no
+cpu_avg_samples 1
+
+TEXT
+
+## DISK
+[{ "full_text" : " / ${fs_free /} F, ${fs_used /} U "	, "color" : "\#ffffff" },
+{ "full_text" : " Home${fs_free /home} F,${fs_used /home} U "	, "color" : "\#ffffff" },
+
+## WLAN
+${if_up wlp2s0}
+	{ "full_text" : " WL ${addr wlp2s0} ", "color" : "\#00ff00" },
+${else}
+	{ "full_text" : " WL Down ", "color" : "\#ff0000" },
+${endif}
+
+
+## LAN
+${if_up enp0s20u1}
+	{ "full_text" : " L ${addr enp0s20u1} ", "color" : "\#00ff00" },
+${else}
+	${if_up enp0s20u2}
+	{ "full_text" : " L ${addr enp0s20u2} ", "color" : "\#00ff00" },
+${else}
+	${if_up enp0s20u3}
+	{ "full_text" : " L ${addr enp0s20u3} ", "color" : "\#00ff00" },
+${else}
+	{ "full_text" : " L Down ", "color" : "\#ff0000" },
+${endif}${endif}${endif}
+
+## RAM
+${if_match ${memperc}>79}
+        { "full_text" : " RAM ${mem} U ", "color" : "\#ff0000" },
+${endif}
+${if_match ${memperc}>29} ${if_match ${battery_percent}<80}
+        { "full_text" : " RAM ${mem} U ", "color" : "\#ffa500" },
+${endif}${endif}
+${if_match ${memperc}<30}
+        { "full_text" : " RAM ${mem} U ", "color" : "\#00ff00" },
+${endif}
+
+
+## CPU
+${if_match ${cpu cpu0}>69}
+	{ "full_text" : " CPU ${cpu cpu0}% ", "color" : "\#00ff00" },
+${else}
+	{ "full_text" : " CPU ${cpu cpu0}% ", "color" : "\#00ff00" },
+${endif}
+
+
+#{ "full_text" : " I/O ${diskio /dev/sda} "	, "color" : "\#ffffff" },
+
+
+## Battery
+${if_match ${battery_percent}==100}
+	{ "full_text" : " BAT F 100% ", "color" : "\#00ff00" },
+${endif}
+${if_match ${battery_percent}>69} ${if_match ${battery_percent}<100}
+	{ "full_text" : " BAT ${battery_short} ", "color" : "\#00ff00" },
+${endif}${endif}
+${if_match ${battery_percent}>29} ${if_match ${battery_percent}<70}
+        { "full_text" : " BAT ${battery_short} ", "color" : "\#ffa500" },
+${endif}${endif}
+${if_match ${battery_percent}<30}
+        { "full_text" : " BAT ${battery_short} ", "color" : "\#ff0000" },
+${endif}
+
+
+## Clock
+{ "full_text" : " ${time %Y-%m-%d %H:%M} "	, "color" : "\#ffffff" }],
