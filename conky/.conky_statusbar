@@ -42,7 +42,7 @@ ${endif}${endif}${endif}
 ${if_match ${memperc}>79}
         { "full_text" : " RAM ${mem} U ", "color" : "\#ff0000" },
 ${endif}
-${if_match ${memperc}>29} ${if_match ${battery_percent}<80}
+${if_match ${memperc}>29} ${if_match ${memperc}<80}
         { "full_text" : " RAM ${mem} U ", "color" : "\#ffa500" },
 ${endif}${endif}
 ${if_match ${memperc}<30}
