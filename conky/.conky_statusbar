@@ -62,21 +62,15 @@ ${endif}
 
 
 ## Battery
-${if_match "${battery_short}"=="U"}
-	{ "full_text" : " BAT ... ", "color" : "\#ffffff" },
-${else}
-	${if_match ${battery_percent}==100}
-			{ "full_text" : " BAT F 100% ", "color" : "\#00ff00" },
-	${endif}
-	${if_match ${battery_percent}>69} ${if_match ${battery_percent}<100}
-		{ "full_text" : " BAT ${battery_short} ", "color" : "\#00ff00" },
-	${endif}${endif}
-	${if_match ${battery_percent}>29} ${if_match ${battery_percent}<70}
-		{ "full_text" : " BAT ${battery_short} ", "color" : "\#ffa500" },
-	${endif}${endif}
-	${if_match ${battery_percent}<30}
-		{ "full_text" : " BAT ${battery_short} ", "color" : "\#ff0000" },
-	${endif}
+
+${if_match ${battery_percent}>69}
+	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#00ff00" },
+${endif}
+${if_match ${battery_percent}>29} ${if_match ${battery_percent}<70}
+	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#ffa500" },
+${endif}${endif}
+${if_match ${battery_percent}<30}
+	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#ff0000" },
 ${endif}
 
 ## Clock
