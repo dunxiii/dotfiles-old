@@ -183,6 +183,9 @@ bindsym XF86Sleep exec --no-startup-id ~/.i3/i3exit.sh suspend
 bindsym XF86KbdBrightnessDown exec --no-startup-id asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp exec --no-startup-id asus-kbd-backlight up
 
+#bindsym Print exec scrot '%Y-%m-%d-%T_%wx%h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
+
 bindsym $mod+u exec devmon --unmount-removable
 bindsym $mod+b border toggle
 
@@ -190,6 +193,7 @@ bindsym $mod+b border toggle
 # Startup Programs
 
 exec --no-startup-id i3-msg 'workspace 2:term; exec /usr/bin/env terminator'
+exec --no-startup-id feh --bg-scale ~/Insync/Bilder/Bakgrundsbilder/1080p\ HDTV/72850_screenshots_2012-09-03_00002.jpg
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id pa-applet &
