@@ -174,13 +174,15 @@ bar {
 bindsym XF86Sleep exec --no-startup-id ~/.i3/i3exit.sh suspend
 bindsym XF86KbdBrightnessDown exec --no-startup-id asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp exec --no-startup-id asus-kbd-backlight up
-bindsym $mod+l exec i3lock -c 000000
+
+bindsym $mod+u exec devmon --unmount-removable
 
 # Startup Programs
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id pa-applet &
 exec --no-startup-id insync start &
+exec --no-startup-id devmon &
 
 # Window Colors
 
