@@ -37,7 +37,7 @@ ${else}
 	${if_up enp0s20u3}
 	{ "full_text" : " L ${addr enp0s20u3} ", "color" : "\#00ff00" },
 ${else}
-	{ "full_text" : " L Down ", "color" : "\#ff0000" },
+	#{ "full_text" : " L Down ", "color" : "\#ff0000" },
 ${endif}${endif}${endif}
 
 ## RAM
