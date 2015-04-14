@@ -73,5 +73,5 @@ ${if_match ${battery_percent}<30}
 	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#ff0000" },
 ${endif}
 
-## Clock
-{ "full_text" : " ${time %Y-%m-%d %H:%M} "	, "color" : "\#ffffff" }],
+## Clock	-	man strftime
+{ "full_text" : " ${time %d %B %H:%M} "	, "color" : "\#ffffff" }],
