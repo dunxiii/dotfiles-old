@@ -15,9 +15,9 @@ TEXT
 
 ## DISK
 [{ "full_text" : "/", "separator": false, "color" : "\#00ff00" },
-{ "full_text" : "${fs_used /}/${fs_size /}", "separator": false, "color" : "\#ffffff" },
+{ "full_text" : "${fs_used /} / ${fs_size /}", "separator": false, "color" : "\#ffffff" },
 { "full_text" : "Home", "separator": false, "color" : "\#00ff00" },
-{ "full_text" : "${fs_used /home}/${fs_size /home} ", "color" : "\#ffffff" },
+{ "full_text" : "${fs_used /home} /${fs_size /home} ", "color" : "\#ffffff" },
 
 ## WLAN
 ${if_up wlp2s0}
