@@ -1,16 +1,64 @@
-set number
-set dictionary+=/usr/share/dict/words
-"set tabstop=4
+" Core settings
+set nocompatible			" be iMproved, required
+filetype off				" required
 
-syntax on
-
-"Allow saving of files as sudo when I forgot to start vim using sudo.
-"cmap w!! w !sudo tee > /dev/null % | :edit!
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
 
 
-"" LaTex
-"filetype plugin on
-"set grepprg=grep\ -nH\ $*
-"filetype indent on
-"let g:tex_flavor='latex'
+" Plugins
+"call vundle#rc()
+call vundle#begin()
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
+Bundle 'klen/python-mode'
+"Bundle 'Efficient-python-folding'
+"Bundle 'python_editing'
+"Bundle 'bling/vim-airline'
+"
+
+call vundle#end()			" required
+filetype plugin indent on		" required!
+
+
+
+"let g:airline_powerline_fonts = 1	" pupulate airline symbos properly
+"let g:airline_theme='murmur'
+"let s:background='dark'
+
+" Settings
+set number				" show row numbers
+set dictionary+=/usr/share/dict/words	" path to dictionary
+set encoding=utf-8 fileencodings=	" use utf8 by default
+set showmode				" show current mode down the bottom
+
+set incsearch				" find the next match as we type the search
+set hlsearch				" highlight search terms
+set nowrap				" dont wrap lines
+
+set laststatus=2
+
+
+syntax on				" Syntax highlight on
+
+colorscheme jellybeans			" Set colorsheme
+
+
+" My own keybinds
+noremap <C-n> :nohl<CR>			" Clear search results
+vnoremap <C-n> :nohl<CR>		" Clear search results
+inoremap <C-n> :nohl<CR>		" Clear search results
+
+noremap <C-z> :update<CR>		" Updates the document
+
+vnoremap <Leader>s :sort<CR>		" Sort block of lines
+
+vnoremap < <gv				" Better indentation
+vnoremap > >gv				" Better indentation
+
+cmap w!! execute 'silent w !sudo tee > /dev/null %' \| edit!
