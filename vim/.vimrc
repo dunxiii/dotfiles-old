@@ -56,6 +56,20 @@ colorscheme jellybeans			" Set colorsheme
 
 
 " My own keybinds
+" Disable arrow keys
+inoremap <up> <nop>
+vnoremap <up> <nop>
+noremap <up> <nop>
+inoremap <down> <nop>
+vnoremap <down> <nop>
+noremap <down> <nop>
+inoremap <right> <nop>
+vnoremap <right> <nop>
+noremap <right> <nop>
+inoremap <left> <nop>
+vnoremap <left> <nop>
+noremap <left> <nop>
+
 noremap <C-n> :nohl<CR>			" Clear search results
 vnoremap <C-n> :nohl<CR>		" Clear search results
 inoremap <C-n> :nohl<CR>		" Clear search results
