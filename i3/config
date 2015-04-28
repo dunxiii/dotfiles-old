@@ -11,9 +11,6 @@
 
 set $mod Mod4
 
-# Applications that allow mouse
-set $mouse_applications "Google-chrome-stable"
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -48,16 +45,16 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left; 			exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+k focus down; 			exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+l focus up; 			exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+odiaeresis focus right; 		exec --no-startup-id mouseonfocus.sh $mouse_applications
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left; 		exec --no-startup-id mouseonfocus.sh $mouse_applications
-#bindsym $mod+Down focus down; 		exec --no-startup-id mouseonfocus.sh $mouse_applications
-#bindsym $mod+Up focus up; 		exec --no-startup-id mouseonfocus.sh $mouse_applications
-#bindsym $mod+Right focus right; 	exec --no-startup-id mouseonfocus.sh $mouse_applications
+bindsym $mod+Left focus left;
+bindsym $mod+Down focus down;
+bindsym $mod+Up focus up;
+bindsym $mod+Right focus right;
 
 # move focused window
 bindsym $mod+Shift+j move left
@@ -103,16 +100,16 @@ set $tag2 "2:term"
 set $tag3 "3:code"
 
 # switch to workspace
-bindsym $mod+1 workspace $tag1 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+2 workspace $tag2 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+3 workspace $tag3 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+4 workspace 4 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+5 workspace 5 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+6 workspace 6 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+7 workspace 7 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+8 workspace 8 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+9 workspace 9 exec --no-startup-id mouseonfocus.sh $mouse_applications
-bindsym $mod+0 workspace 10 exec --no-startup-id mouseonfocus.sh $mouse_applications
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
