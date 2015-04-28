@@ -75,6 +75,7 @@ vnoremap <C-n> :nohl<CR>		" Clear search results
 inoremap <C-n> :nohl<CR>		" Clear search results
 
 noremap <C-z> :update<CR>		" Updates the document
+noremap <C-x> :quit<CR> 		" Quits the document
 
 vnoremap <Leader>s :sort<CR>		" Sort block of lines
 
