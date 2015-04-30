@@ -206,6 +206,7 @@ exec --no-startup-id xflux -l 55.5864 -g 13.0546 &
 
 # Borderless windows
 for_window [class="Google-chrome-stable"] border none
+for_window [class="Skype"] border none
 
 # Window Colors
 
