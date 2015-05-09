@@ -32,7 +32,7 @@ font pango: URW Gothic L Book 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id terminator
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -98,6 +98,8 @@ bindsym $mod+a focus parent
 set $tag1 "1:www"
 set $tag2 "2:term"
 set $tag3 "3:code"
+set $tag9 "skype"
+set $tag10 "vbox"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -108,8 +110,8 @@ bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
@@ -120,11 +122,11 @@ bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+9 move container to workspace $tag9
+bindsym $mod+Shift+0 move container to workspace $tag10
 
 # force window to workspace
-assign [class="Google-chrome-stable"] $tag1
+#assign [class="Google-chrome-stable"] $tag1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -172,10 +174,10 @@ bar {
 		statusline #dedede
 		separator #dedede
 
-		focused_workspace  #d64937 #d64937 #dedede
-		active_workspace   #2d2d2d #5f676a #dedede
-		inactive_workspace #2d2d2d #2d2d2d #888888
-		urgent_workspace   #333333 #900000 #ffffff
+#		focused_workspace  #d64937 #d64937 #dedede
+#		active_workspace   #2d2d2d #5f676a #dedede
+#		inactive_workspace #2d2d2d #2d2d2d #888888
+#		urgent_workspace   #333333 #900000 #ffffff
     	}
 }
 
@@ -191,10 +193,13 @@ bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 bindsym $mod+u			exec devmon --unmount-removable
 bindsym $mod+b			border toggle
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 # Startup Programs
 
-# exec --no-startup-id i3-msg 'workspace 2:term; exec /usr/bin/env terminator'
+#exec --no-startup-id i3-msg "workspace skype; exec --no-startup-id /usr/bin/env skype"
+#exec --no-startup-id i3-msg "workspace vbox; exec --no-startup-id /usr/bin/env virtualbox"
 exec --no-startup-id feh --bg-scale ~/Insync/Bilder/Bakgrundsbilder/1080p\ HDTV/72850_screenshots_2012-09-03_00002.jpg
 
 exec --no-startup-id nm-applet &
@@ -207,13 +212,15 @@ exec --no-startup-id xflux -l 55.5864 -g 13.0546 &
 # Borderless windows
 for_window [class="Google-chrome-stable"] border none
 for_window [class="Skype"] border none
+for_window [class="VirtualBox"] border none
+for_window [class="URxvt"] border none
 
 # Window Colors
 
-client.focused 		#d64937 #d64937 #dedede #dedede
-client.unfocused 	#2d2d2d #2d2d2d #dedede #dedede
-client.focused_inactive #2d2d2d #2d2d2d #dedede #dedede
-client.urgent 		#383a3b #383a3b #ee0000 #dedede
+#client.focused 		#d64937 #d64937 #dedede #dedede
+#client.unfocused 	#2d2d2d #2d2d2d #dedede #dedede
+#client.focused_inactive #2d2d2d #2d2d2d #dedede #dedede
+#client.urgent 		#383a3b #383a3b #ee0000 #dedede
 
 
 # Own Settings
