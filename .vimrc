@@ -79,7 +79,17 @@ set laststatus=2
 
 syntax on				" Syntax highlight on
 
+function! NumberToggle()
+  if(&relativenumber)
+    set norelativenumber
+    set number
+  else
+    set nonumber
+    set relativenumber
+  endif
+endfunc
 
+nnoremap <C-n> :call NumberToggle()<cr>
 
 " My own keybinds
 " Disable arrow keys
