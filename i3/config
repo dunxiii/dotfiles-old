@@ -195,15 +195,22 @@ bindsym $mod+minus scratchpad show
 for_window [title="Scratchpad"] move scratchpad; scratchpad show
 
 # Startup applications
-exec --no-startup-id skype &
-exec --no-startup-id virtualbox &
 exec --no-startup-id feh --bg-scale ~/Insync/Bilder/Bakgrundsbilder/1080p\ HDTV/72850_screenshots_2012-09-03_00002.jpg
-
+#exec --no-startup-id skype &
+exec --no-startup-id virtualbox &
 exec --no-startup-id nm-applet &
 exec --no-startup-id pa-applet &
 exec --no-startup-id insync start &
 exec --no-startup-id devmon &
+exec --no-startup-id urxvtd &
 exec --no-startup-id xflux -l 55.5864 -g 13.0546 &
+
+exec --no-startup-id sysdaemon -dtki 1 &
+exec --no-startup-id synclient PalmDetect=1 &
+exec --no-startup-id synclient PalmMinWidth=4 &
+exec --no-startup-id xrdb ~/.Xresources &
+
+
 
 # Put some autostarted applications in specific workspaces
 assign [class="Skype"] $tag9
