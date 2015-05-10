@@ -10,6 +10,9 @@
     ~/.Xresources:
         force: true
         path: .Xresources
+    ~/.xinitrc:
+        force: true
+        path: .xinitrc
     ~/.conky:
         force: true
         path: conky/
