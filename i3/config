@@ -51,10 +51,10 @@ bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left;
-bindsym $mod+Down focus down;
-bindsym $mod+Up focus up;
-bindsym $mod+Right focus right;
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
@@ -98,8 +98,8 @@ bindsym $mod+a focus parent
 set $tag1 "1:www"
 set $tag2 "2:term"
 set $tag3 "3:code"
-set $tag9 "skype"
-set $tag10 "vbox"
+set $tag9 "9:skype"
+set $tag10 "10:vbox"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -173,16 +173,10 @@ bar {
 		background #2d2d2d
 		statusline #dedede
 		separator #dedede
-
-#		focused_workspace  #d64937 #d64937 #dedede
-#		active_workspace   #2d2d2d #5f676a #dedede
-#		inactive_workspace #2d2d2d #2d2d2d #888888
-#		urgent_workspace   #333333 #900000 #ffffff
     	}
 }
 
 # Own Keybinds
-
 bindsym XF86Sleep		exec --no-startup-id ~/.i3/i3exit.sh suspend
 bindsym XF86KbdBrightnessDown	exec --no-startup-id asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp	exec --no-startup-id asus-kbd-backlight up
@@ -192,14 +186,17 @@ bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 
 bindsym $mod+u			exec devmon --unmount-removable
 bindsym $mod+b			border toggle
+bindsym $mod+n          exec --no-startup-id test -z $(xdotool search --classname Scratchpad) && urxvtc -name Scratchpad; scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Startup Programs
+# Make window Scratchpad automatic
+for_window [title="Scratchpad"] move scratchpad; scratchpad show
 
-#exec --no-startup-id i3-msg "workspace skype; exec --no-startup-id /usr/bin/env skype"
-#exec --no-startup-id i3-msg "workspace vbox; exec --no-startup-id /usr/bin/env virtualbox"
+# Startup applications
+exec --no-startup-id skype &
+exec --no-startup-id virtualbox &
 exec --no-startup-id feh --bg-scale ~/Insync/Bilder/Bakgrundsbilder/1080p\ HDTV/72850_screenshots_2012-09-03_00002.jpg
 
 exec --no-startup-id nm-applet &
@@ -208,28 +205,21 @@ exec --no-startup-id insync start &
 exec --no-startup-id devmon &
 exec --no-startup-id xflux -l 55.5864 -g 13.0546 &
 
+# Put some autostarted applications in specific workspaces
+assign [class="Skype"] $tag9
+assign [class="VirtualBox"] $tag10
 
 # Borderless windows
 for_window [class="Google-chrome-stable"] border none
 for_window [class="Skype"] border none
 for_window [class="VirtualBox"] border none
 for_window [class="URxvt"] border none
-
-# Window Colors
-
-#client.focused 		#d64937 #d64937 #dedede #dedede
-#client.unfocused 	#2d2d2d #2d2d2d #dedede #dedede
-#client.focused_inactive #2d2d2d #2d2d2d #dedede #dedede
-#client.urgent 		#383a3b #383a3b #ee0000 #dedede
-
+for_window [title="Scratchpad"] border 1pixel
 
 # Own Settings
 focus_follows_mouse no
 
-
-##
-# system
-##
+# System menu
 set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
 bindsym XF86PowerOff mode "$mode_system"
 mode "$mode_system" {
