@@ -32,7 +32,7 @@ font pango: URW Gothic L Book 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec --no-startup-id urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
