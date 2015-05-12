@@ -9,9 +9,11 @@ URxvt.internalBorder: 0
 URxvt.intensityStyles: false
 Rxvt*scrollBar: false
 URxvt*fading: 30
-URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=13
-!URxvt*font: xft:Anonymous\ Pro\ for\ Powerline:pixelsize=16
-!URxvt*font: xft:Anonymice\ Powerline:pixelsize=16
+URxvt*font: xft:Inconsolata for Powerline:size=12
+!URxvt*font: xft:Literation Mono Powerline:pixelsize=15
+!URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=13
+!URxvt*font: xft:Droid Sans Mono for Powerline:pixelsize=13
+!URxvt*font: xft:Sauce Code Powerline:pixelsize=13
 
 
 ! COLORSCHEME
