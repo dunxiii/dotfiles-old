@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 "Bundle 'ryanoasis/vim-webdevicons'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
 
 "Bundle 'Efficient-python-folding'
 "Bundle 'python_editing'
@@ -32,10 +33,10 @@ call vundle#end()			" required
 filetype plugin indent on		" required!
 
 " Plugin settings
-:let g:notes_directories = ['~/Insync/notes']
-:let g:notes_suffix = '.txt'
+let g:notes_directories = ['~/Insync/notes']
+let g:notes_suffix = '.txt'
 
-"let g:airline_powerline_fonts = 1" pupulate airline symbos properly
+let g:airline_powerline_fonts = 1" pupulate airline symbos properly
 "let g:airline_theme='murmur'
 "let s:background='dark'
 
@@ -44,6 +45,10 @@ set background=dark
 colorscheme solarized
 "let g:solarized_termcolors=256
 
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
 
 " Settings
 "set nocompatible			" be iMproved, required
