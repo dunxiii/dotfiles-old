@@ -35,6 +35,7 @@ filetype plugin indent on		" required!
 " Plugin settings
 let g:notes_directories = ['~/Insync/notes']
 let g:notes_suffix = '.txt'
+let g:notes_word_boundaries = 1
 
 let g:airline_powerline_fonts = 1" pupulate airline symbos properly
 "let g:airline_theme='murmur'
@@ -147,4 +148,6 @@ vnoremap < <gv				" Better indentation
 vnoremap > >gv				" Better indentation
 
 cmap w!! execute 'silent w !sudo tee > /dev/null %' \| edit!
+nmap <S-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
 nmap <C-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
+nmap <C-Left> :exec '!'.getline('.')<CR>     " Runs current line as command
