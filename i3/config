@@ -45,10 +45,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -186,13 +186,17 @@ bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 
 bindsym $mod+u			exec devmon --unmount-removable
 bindsym $mod+b			border toggle
-bindsym $mod+n          exec --no-startup-id test -z $(xdotool search --classname Scratchpad) && urxvtc -name Scratchpad; scratchpad show
+
+# Scratchpad stuff
+bindsym $mod+n          exec --no-startup-id test -z $(xdotool search --classname sci3hw) && urxvtc -name sci3hw && sleep 0.5s && xdotool search --classname "sci3hw" set_window --name "sci3hw"; [title="sci3hw"] scratchpad show
+bindsym $mod+k          exec --no-startup-id test -z $(xdotool search --name KeePassX) && keepassx; [title="KeePassX"] scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Make window Scratchpad automatic
-for_window [title="Scratchpad"] move scratchpad; scratchpad show
+# Applications to auto make scratchpads
+for_window [title="sci3hw"] move scratchpad; [title="sci3hw"] scratchpad show
+for_window [title="KeePassX"] move scratchpad; [title="KeePassX"] scratchpad show
 
 # Startup applications
 exec --no-startup-id feh --bg-scale ~/Insync/Bilder/Bakgrundsbilder/1080p\ HDTV/72850_screenshots_2012-09-03_00002.jpg
@@ -221,7 +225,9 @@ for_window [class="Google-chrome-stable"] border none
 for_window [class="Skype"] border none
 for_window [class="VirtualBox"] border none
 for_window [class="URxvt"] border none
-for_window [title="Scratchpad"] border 1pixel
+# Scratchpad windows
+for_window [title="sci3hw"] border 1pixel
+for_window [title="KeePassX"] border 1pixel
 
 # Own Settings
 focus_follows_mouse no
