@@ -36,13 +36,14 @@ let g:notes_directories = ['~/Insync/notes']
 let g:notes_suffix = '.txt'
 let g:notes_word_boundaries = 1
 
-let g:airline_powerline_fonts = 1" pupulate airline symbos properly
+let g:airline_powerline_fonts = 1   "Populate airline symbos properly
 "let g:airline_theme='murmur'
 "let s:background='dark'
 
 " solarized theme
 set background=dark
 colorscheme solarized
+highlight clear SignColumn          "Fix for gitgutter
 "let g:solarized_termcolors=256
 
 let g:airline_right_alt_sep = ''
