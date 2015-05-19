@@ -9,24 +9,23 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
-Plugin 'ntpeters/vim-better-whitespace'
+"Bundle 'Efficient-python-folding'
+"Bundle 'benmills/vimux'
+"Bundle 'ervandew/supertab'
 "Bundle 'flazz/vim-colorschemes'
+"Bundle 'python_editing'
+"Bundle 'ryanoasis/vim-webdevicons'
+"Plugin 'tpope/vim-surround'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'klen/python-mode'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
-Plugin 'klen/python-mode'
-Plugin 'scrooloose/nerdtree'
-"Bundle 'ervandew/supertab'
-"Plugin 'tpope/vim-surround'
-"Bundle 'benmills/vimux'
-Plugin 'tpope/vim-fugitive'
-"Bundle 'ryanoasis/vim-webdevicons'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/syntastic'
-
-"Bundle 'Efficient-python-folding'
-"Bundle 'python_editing'
-Plugin 'bling/vim-airline'
-
 
 
 call vundle#end()			" required
