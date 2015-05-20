@@ -1,7 +1,7 @@
 - clean: ['~', '~/.config']
 
 - shell:
-    mkdir -p ~/.config
+    - mkdir -p ~/.config
 
 - link:
     ~/.vimrc:
