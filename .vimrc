@@ -2,6 +2,7 @@ filetype off            " Required by Vundle
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+autocmd BufEnter * set updatetime=750
 
 " Plugins
 "call vundle#rc()
@@ -44,6 +45,8 @@ let g:airline_powerline_fonts = 1   "Populate airline symbos properly
 set background=dark
 colorscheme solarized
 highlight clear SignColumn          "Fix for gitgutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
 "let g:solarized_termcolors=256
 
 let g:airline_right_alt_sep = ''
@@ -147,7 +150,7 @@ noremap <C-x> :quit<CR> 		" Quits the document
 vnoremap < <gv				" Better indentation
 vnoremap > >gv				" Better indentation
 
-cmap w!! execute 'silent w !sudo tee > /dev/null %' \| edit!
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 nmap <S-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
 nmap <C-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
 nmap <C-Left> :exec '!'.getline('.')<CR>     " Runs current line as command
