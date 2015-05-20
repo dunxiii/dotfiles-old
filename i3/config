@@ -199,7 +199,7 @@ for_window [class="URxvt" instance="vimNotes"] move scratchpad, scratchpad show
 for_window [title="KeePassX"] move scratchpad, scratchpad show
 
 # Startup applications
-exec --no-startup-id feh --bg-scale ~/Insync/Bilder/Bakgrundsbilder/1080p\ HDTV/72850_screenshots_2012-09-03_00002.jpg
+exec --no-startup-id feh --bg-scale ~/Insync/Bilder/0dnZS6U.jpg
 exec --no-startup-id skype &
 exec --no-startup-id virtualbox &
 exec --no-startup-id nm-applet &
