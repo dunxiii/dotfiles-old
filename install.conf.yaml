@@ -1,4 +1,7 @@
-- clean: ['~']
+- clean: ['~', '~/.config']
+
+- shell:
+    mkdir -p ~/.config
 
 - link:
     ~/.vimrc:
@@ -16,6 +19,9 @@
     ~/.bashrc:
         force: true
         path: .bashrc
+    ~/.config/ranger:
+        force: true
+        path: ranger
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
