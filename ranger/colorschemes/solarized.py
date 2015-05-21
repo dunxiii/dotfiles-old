@@ -81,7 +81,6 @@ class Solarized(ColorScheme):
                     fg = magenta
 
         elif context.in_titlebar:
-            attr |= bold
             if context.hostname:
                 fg = context.bad and 16 or 255
                 if context.bad:
