@@ -7,6 +7,9 @@
     ~/.vimrc:
         force: true
         path: .vimrc
+    ~/.gitconfig:
+        force: true
+        path: .gitconfig
     ~/.i3:
         force: true
         path: i3/
