@@ -33,7 +33,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id urxvtc
-bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -c "ranger ~"
+bindsym $mod+BackSpace exec --no-startup-id urxvt -e bash -c "ranger ~"
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
