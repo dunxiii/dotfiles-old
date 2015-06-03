@@ -25,6 +25,9 @@
     ~/.config/ranger:
         force: true
         path: ranger
+    /etc/lxdm/lxdm.conf:
+        force: true
+        path: lxdm/lxdm.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

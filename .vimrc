@@ -27,39 +27,42 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'Valloric/YouCompleteMe'
 
 
 call vundle#end()			" required
 filetype plugin indent on		" required!
 
+"
 " Plugin settings
-let g:notes_directories = ['~/Insync/notes']
+"
+
+" vim-notes
+let g:notes_directories = ['~/Insync/notes', '~/Insync/Nix/operating_system_setup']
 let g:notes_suffix = '.txt'
 let g:notes_word_boundaries = 1
+let g:notes_tab_indents = 0         "Removes tab indentation on list items
 
+" vim-airline
 let g:airline_powerline_fonts = 1   "Populate airline symbos properly
-"let g:airline_theme='murmur'
-"let s:background='dark'
-
-" solarized theme
-set background=dark
-colorscheme solarized
-highlight clear SignColumn          "Fix for gitgutter
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
-"let g:solarized_termcolors=256
-
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep= ''
 let g:airline_left_sep = ''
 
+" solarized theme
+set background=dark
+colorscheme solarized
 
-" Syntastic
+" vim-gitgutter
+highlight clear SignColumn          "Fix for gitgutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+
+" syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -68,8 +71,10 @@ let g:syntastic_quiet_messages = {
     \ "!level":  "errors",
     \ "type":    "style"}
 
-
+"
 " Settings
+"
+
 "set nocompatible			" be iMproved, required
 "set number				" show row numbers
 "set dictionary+=/usr/share/dict/words	" path to dictionary
@@ -138,9 +143,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"noremap <C-n> :nohl<CR>			" Clear search results
-"vnoremap <C-n> :nohl<CR>		" Clear search results
-"inoremap <C-n> :nohl<CR>		" Clear search results
+noremap <C-n> :nohl<CR>			" Clear search results
+vnoremap <C-n> :nohl<CR>		" Clear search results
+inoremap <C-n> :nohl<CR>		" Clear search results
 
 noremap <C-z> :update<CR>		" Updates the document
 noremap <C-x> :quit<CR> 		" Quits the document
