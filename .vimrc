@@ -4,7 +4,10 @@ filetype off            " Required by Vundle
 autocmd! bufwritepost .vimrc source %
 autocmd BufEnter * set updatetime=750
 
+"
 " Plugins
+"
+
 "call vundle#rc()
 call vundle#begin()
 Bundle 'gmarik/vundle'
@@ -27,7 +30,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 
 call vundle#end()			" required
@@ -38,7 +41,7 @@ filetype plugin indent on		" required!
 "
 
 " vim-notes
-let g:notes_directories = ['~/Insync/notes', '~/Insync/Nix/operating_system_setup']
+let g:notes_directories = ['~/dunxiii@gmail.com/notes', '~/dunxiii@gmail.com/Nix/operating_system_setup']
 let g:notes_suffix = '.txt'
 let g:notes_word_boundaries = 1
 let g:notes_tab_indents = 0         "Removes tab indentation on list items
@@ -158,4 +161,4 @@ vnoremap > >gv				" Better indentation
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 nmap <S-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
 nmap <C-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
-nmap <C-Left> :exec '!'.getline('.')<CR>     " Runs current line as command
+nmap <A-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
