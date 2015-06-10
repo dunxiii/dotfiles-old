@@ -191,7 +191,6 @@ bar {
 bindsym XF86Sleep		exec --no-startup-id ~/.i3/i3exit.sh suspend
 bindsym XF86KbdBrightnessDown	exec --no-startup-id asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp	exec --no-startup-id asus-kbd-backlight up
-#bindsym XF86TouchpadToggle	exec --no-startup-id
 
 bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 
@@ -208,20 +207,6 @@ bindsym $mod+minus scratchpad show
 # Applications to auto make scratchpads
 for_window [class="URxvt" instance="vimNotes"] move scratchpad, scratchpad show
 for_window [title="KeePassX"] move scratchpad, scratchpad show
-
-# Startup applications
-exec --no-startup-id feh --bg-scale ~/Insync/Bilder/0dnZS6U.jpg
-exec --no-startup-id skype &
-exec --no-startup-id virtualbox &
-exec --no-startup-id nm-applet &
-exec --no-startup-id pa-applet &
-exec --no-startup-id insync start &
-exec --no-startup-id devmon &
-exec --no-startup-id urxvtd &
-exec --no-startup-id xflux -l 55.5864 -g 13.0546 &
-
-exec --no-startup-id sysdaemon -dtki 1 &
-exec --no-startup-id xrdb -merge ~/.Xresources &
 
 # Put some autostarted applications in specific workspaces
 assign [class="Skype"] $tag9
