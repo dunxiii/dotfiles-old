@@ -10,11 +10,11 @@ set_permission() {
         if [ ${UID} -eq 0 ]; then
             chmod o+wx ${path}/brightness
         else
-            echo "You don't have the right permissions" > 2
+            echo "You don't have the right permissions" >&2
             exit 1
         fi
     else
-        echo "System file does not exist" > 2
+        echo "System file does not exist" >&2
         exit 1
     fi
 }
@@ -25,7 +25,7 @@ set_brightness() {
 
     # Controll if the current user has write permission to the system file
     if [ ! -w ${path}/brightness ]; then
-        echo "You don't have the right permissions" > 2
+        echo "You don't have the right permissions" >&2
         exit 1
     fi
 
@@ -50,7 +50,7 @@ set_brightness() {
             ;;
         esac
     else
-        echo "System file missing" > 2
+        echo "System file missing" >&2
         exit 1
     fi
 }
@@ -73,7 +73,7 @@ while getopts :pudh option; do
         u) set_brightness up ;;
         d) set_brightness down ;;
         h) print_help ;;
-        ?) echo "${OPTARG} is not a valid flag option!"
+        ?) echo "${OPTARG} is not a valid flag option!" >&2
            exit 1
            ;;
     esac
