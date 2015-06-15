@@ -8,7 +8,6 @@ setxkbmap se
 # Startup applications
 #exec --no-startup-id feh --bg-scale ~/Insync/Bilder/0dnZS6U.jpg
 exec insync start &
-exec urxvtd &
 
 
 
