@@ -32,8 +32,8 @@ font pango: URW Gothic L Book 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvtc
-bindsym $mod+BackSpace exec --no-startup-id urxvt -e bash -c "ranger ~"
+bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+BackSpace exec --no-startup-id gnome-terminal -e bash -c "ranger ~"
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -198,15 +198,15 @@ bindsym $mod+u			exec devmon --unmount-removable
 bindsym $mod+b			border toggle
 
 # Scratchpad stuff
-bindsym $mod+n          exec --no-startup-id test -z $(xdotool search --classname vimNotes) && urxvtc -name vimNotes; [class="URxvt" instance="vimNotes"] scratchpad show
-bindsym $mod+k          exec --no-startup-id test -z $(xdotool search --name KeePassX) && keepassx; [title="KeePassX"] scratchpad show
+bindsym $mod+n          exec --no-startup-id test -z $(xdotool search --class vimNotes) && gnome-terminal -e "/bin/zsh -c 'xdotool getactivewindow set_window --class vimNotes && /bin/zsh'"; [class="vimNotes"] scratchpad show
+bindsym $mod+k          exec --no-startup-id test -z $(xdotool search --name KeePassX) && keepassx; [class="Keepassx"] scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Applications to auto make scratchpads
-for_window [class="URxvt" instance="vimNotes"] move scratchpad, scratchpad show
-for_window [title="KeePassX"] move scratchpad, scratchpad show
+for_window [class="Gnome-terminal" class="vimNotes"] move scratchpad, scratchpad show
+for_window [class="Keepassx"] move scratchpad, scratchpad show
 
 # Put some autostarted applications in specific workspaces
 assign [class="Skype"] $tag9
@@ -216,10 +216,11 @@ assign [class="VirtualBox"] $tag10
 for_window [class="Google-chrome-stable"] border none
 for_window [class="Skype"] border none
 for_window [class="VirtualBox"] border none
-for_window [class="URxvt"] border none
+for_window [class="Gnome-terminal"] border none
+
 # Scratchpad windows
-for_window [class="URxvt" instance="vimNotes"] border 1pixel
-for_window [title="KeePassX"] border 1pixel
+for_window [class="Gnome-terminal" class="vimNotes"] border 1pixel
+for_window [class="Keepassx"] border 1pixel
 
 # Own Settings
 focus_follows_mouse no
