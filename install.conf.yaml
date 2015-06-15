@@ -13,9 +13,6 @@
     ~/.i3:
         force: true
         path: i3/
-    ~/.Xresources:
-        force: true
-        path: .Xresources
     ~/.conky:
         force: true
         path: conky/
