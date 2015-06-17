@@ -74,3 +74,4 @@ BROWSER=/usr/bin/xdg-open
 # keybinds
 # bind '"\e[24~":"pwd\n"'
 bind '"\e[24~": "\e[1~time \e[4~\n"'
+bind '"\C-h"':"\"ls -al \C-m\""
