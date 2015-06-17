@@ -33,7 +33,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id gnome-terminal
-bindsym $mod+BackSpace exec --no-startup-id gnome-terminal -e bash -c "ranger ~"
+bindsym $mod+BackSpace exec --no-startup-id gnome-terminal -e "/bin/zsh -c 'ranger ~'"
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -199,7 +199,7 @@ bindsym $mod+b			border toggle
 
 # Scratchpad stuff
 bindsym $mod+n          exec --no-startup-id test -z $(xdotool search --class vimNotes) && gnome-terminal -e "/bin/zsh -c 'xdotool getactivewindow set_window --class vimNotes && /bin/zsh'"; [class="vimNotes"] scratchpad show
-bindsym $mod+k          exec --no-startup-id test -z $(xdotool search --name KeePassX) && keepassx; [class="Keepassx"] scratchpad show
+bindsym $mod+k          exec --no-startup-id test -z $(xdotool search --class Keepassx) && keepassx; [class="Keepassx"] scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
@@ -240,7 +240,7 @@ mode "$mode_system" {
 	bindsym Escape mode "default"
 }
 
-# kill focused window
+# kill focused window menu
 set $mode_kill (return / y) kill
 bindsym $mod+Shift+q mode "$mode_kill"
 mode "$mode_kill" {
