@@ -124,7 +124,7 @@ bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
 # force window to workspace
-#assign [class="Google-chrome-stable"] $tag1
+#assign [class="Chromium"] $tag1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -213,7 +213,7 @@ assign [class="Skype"] $tag9
 assign [class="VirtualBox"] $tag10
 
 # Borderless windows
-for_window [class="Google-chrome-stable"] border none
+for_window [class="Chromium"] border none
 for_window [class="Skype"] border none
 for_window [class="VirtualBox"] border none
 for_window [class="Gnome-terminal"] border none
