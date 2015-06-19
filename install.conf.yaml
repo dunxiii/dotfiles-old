@@ -1,12 +1,22 @@
-- clean: ['~', '~/.config']
+- clean: ['~', '~/.config', '~/.vim/bundle/']
 
 - shell:
-    - mkdir -p ~/.config
+    - mkdir -p ~/{Downloads}
 
 - link:
+    ~/.zshrc:
+        force: true
+        path: .zshrc
+    ~/.zlogin:
+        force: true
+        path: .zlogin
     ~/.vimrc:
         force: true
         path: .vimrc
+    ~/.vim/bundle/Vundle.vim:
+        create: true
+        force: true
+        path: Vundle.vim/
     ~/.gitconfig:
         force: true
         path: .gitconfig
@@ -16,15 +26,21 @@
     ~/.conky:
         force: true
         path: conky/
-    ~/.bashrc:
-        force: true
-        path: .bashrc
     ~/.config/ranger:
+        create: true
         force: true
         path: ranger
     ~/.xinitrc:
         force: true
         path: .xinitrc
+#    ~/.Xresources:
+#        force: true
+#        path: .Xresources
+
+# Install fonts
+- shell:
+    - ./fonts/install.sh
+    - fc-cache
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
