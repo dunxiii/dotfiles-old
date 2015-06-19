@@ -4,3 +4,9 @@
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts.git
+[submodule "Vundle.vim"]
+	path = Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
