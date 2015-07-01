@@ -19,6 +19,11 @@ TEXT
 { "full_text" : "Home", "separator": false, "color" : "\#00ff00" },
 { "full_text" : "${fs_used /home} /${fs_size /home} ", "color" : "\#ffffff" },
 
+
+{ "full_text" : " C1: ${freq_g 1} ", "color" : "\#ffffff" },
+{ "full_text" : " C2: ${freq_g 2} ", "color" : "\#ffffff" },
+
+
 ## WLAN
 ${if_up wlp2s0}
 	{ "full_text" : " WL ${addr wlp2s0} ", "color" : "\#00ff00" },
@@ -41,39 +46,28 @@ ${else}
 ${endif}${endif}${endif}
 
 ## RAM
-${if_match ${memperc}>79}
-        { "full_text" : " RAM ${mem} U ", "color" : "\#ff0000" },
-${endif}
-${if_match ${memperc}>29} ${if_match ${memperc}<80}
-        { "full_text" : " RAM ${mem} U ", "color" : "\#ffa500" },
-${endif}${endif}
-${if_match ${memperc}<30}
-        { "full_text" : " RAM ${mem} U ", "color" : "\#00ff00" },
-${endif}
-
+{ "full_text" : " RAM ${mem} ", "color" :
+    ${if_match ${memperc}<30}"\#00ff00"${endif}
+    ${if_match ${memperc}>29} ${if_match ${memperc}<80}"\#ffa500"${endif}${endif}
+    ${if_match ${memperc}>79}"\#ff0000"${endif}
+},
 
 ## CPU
-${if_match ${cpu cpu0}>69}
-	{ "full_text" : " CPU ${cpu cpu0}% ", "color" : "\#00ff00" },
-${else}
-	{ "full_text" : " CPU ${cpu cpu0}% ", "color" : "\#00ff00" },
-${endif}
-
+{ "full_text" : " CPU ${cpu cpu0}% ", "color" :
+    ${if_match ${cpu cpu0}<74}"\#00ff00"${else}"\#ff0000"${endif} 
+},
 
 #{ "full_text" : " I/O ${diskio /dev/sda} "	, "color" : "\#ffffff" },
 
+## Volume
+#{ "full_text" : " Vol ${}", "color" : "\#ff0000"},
 
 ## Battery
-
-${if_match ${battery_percent}>69}
-	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#00ff00" },
-${endif}
-${if_match ${battery_percent}>29} ${if_match ${battery_percent}<70}
-	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#ffa500" },
-${endif}${endif}
-${if_match ${battery_percent}<30}
-	{ "full_text" : " BAT ${battery_percent}% ", "color" : "\#ff0000" },
-${endif}
+{ "full_text" : " BAT ${battery_percent}% ", "color" :
+    ${if_match ${battery_percent}<25}"\#ff0000"${endif}
+    ${if_match ${battery_percent}>24}${if_match ${battery_percent}<51}"\#ffa500"${endif}${endif}
+    ${if_match ${battery_percent}>50}"\#00ff00"${endif}
+},
 
 ## Clock	-	man strftime
 { "full_text" : " ${time %d %B %H:%M} "	, "color" : "\#ffffff" }],
