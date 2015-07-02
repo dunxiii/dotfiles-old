@@ -8,28 +8,28 @@ filetype off            " Required by Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"Bundle 'Efficient-python-folding'
-"Bundle 'benmills/vimux'
-"Bundle 'ervandew/supertab'
-"Bundle 'flazz/vim-colorschemes'
-"Bundle 'python_editing'
-"Bundle 'ryanoasis/vim-webdevicons'
-"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'benmills/vimux'
+"Plugin 'ervandew/supertab'
+"Plugin 'flazz/vim-colorschemes'
 "Plugin 'klen/python-mode'
-"Plugin 'ntpeters/vim-better-whitespace'
+"Plugin 'python_editing'
+"Plugin 'ryanoasis/vim-webdevicons'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
-"Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 
-call vundle#end()			" required
-filetype plugin indent on		" required!
+call vundle#end()           " required
+filetype plugin indent on   " required
 
 "
 " Plugin settings
@@ -75,14 +75,16 @@ let g:gitgutter_eager = 1
 " Vim settings
 "
 
-"set number				" show row numbers
-"set dictionary+=/usr/share/dict/words	" path to dictionary
-set encoding=utf-8 fileencodings=	" use utf8 by default
+let mapleader=" "
+"set number                              " show row numbers
+"set dictionary+=/usr/share/dict/words  " path to dictionary
+set encoding=utf-8 fileencodings=       " use utf8 by default
 set showmode				" show current mode down the bottom
 "set cursorline              " show current line of cursor
 "set cursorcolumn            " show current cloumn of cursor
 set relativenumber          " show relative numbers instead of absolute
 "set undofile               " creates file.un~ so you can allways undo changes
+set nowrap				    " dont wrap lines
 
 
 " Searching
@@ -94,9 +96,6 @@ set smartcase               " if search has case letter search by it
 set incsearch				" find the next match as we type the search
 set hlsearch				" highlight search terms
 
-
-set nowrap				    " dont wrap lines
-
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -104,6 +103,9 @@ set expandtab
 
 set laststatus=2
 
+"
+" Functions
+"
 
 function! NumberToggle()
   if(&relativenumber)
@@ -115,10 +117,9 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-
-" My own keybinds
-" Disable arrow keys
+"
+" Vim Hardmode
+"
 inoremap <up> <nop>
 vnoremap <up> <nop>
 noremap <up> <nop>
@@ -131,29 +132,48 @@ noremap <right> <nop>
 inoremap <left> <nop>
 vnoremap <left> <nop>
 noremap <left> <nop>
+"noremap h <nop>
+"noremap j <nop>
+"noremap k <nop>
+"noremap l <nop>
 
-nnoremap Q <nop>                " disable Ex mode
+" disable Ex mode
+nnoremap Q <nop>
+
+"
+" Personal Keybinds
+"
+
+" Remove cursor movement after exiting insert mode
+inoremap <silent> <Esc> <Esc>`^
+"imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Move between splits with CTRL+[hjkl]
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
-noremap     <C-n> :nohl<CR>     " Clear search results
-vnoremap    <C-n> :nohl<CR>     " Clear search results
-inoremap    <C-n> :nohl<CR>     " Clear search results
+" Clear search results
+nmap <LEADER>/ :nohl<CR>
 
-noremap     <C-z> :update<CR>   " Saves the document
-noremap     <C-x> :quit<CR>     " Quits the document
+" Save and Quit
+nmap <C-z> :update<CR>
+nmap <C-x> :quit<CR>
 
-"vnoremap <Leader>s :sort<CR>		" Sort block of lines
+" Sidepanel numbers
+nmap <LEADER>§ :set nonumber norelativenumber<CR>
+nmap § :call NumberToggle()<CR>
 
-vnoremap < <gv				" Better indentation
-vnoremap > >gv				" Better indentation
+" Sort block of lines
+vmap <LEADER>s :sort<CR>
 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!     " Save file as root
+" Better indentation
+vmap < <gv
+vmap > >gv
 
-nmap <S-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
-nmap <C-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
-nmap <A-F11> :exec '!'.getline('.')<CR>     " Runs current line as command
+" Save file as root
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
+" Runs current line as command in shell
+nmap <LEADER>e :exec '!'.getline('.')<CR>
