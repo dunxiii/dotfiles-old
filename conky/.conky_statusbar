@@ -3,7 +3,7 @@ own_window no
 out_to_console yes
 background no
 max_text_width 0
-update_interval 2.0
+update_interval 5.0
 total_run_times 0
 short_units yes
 if_up_strictness address
@@ -20,13 +20,10 @@ TEXT
 { "full_text" : "${fs_used /home} /${fs_size /home} ", "color" : "\#ffffff" },
 
 
-{ "full_text" : " C1: ${freq_g 1} ", "color" : "\#ffffff" },
-{ "full_text" : " C2: ${freq_g 2} ", "color" : "\#ffffff" },
-
-
 ## WLAN
 ${if_up wlp2s0}
-	{ "full_text" : " WL ${addr wlp2s0} ", "color" : "\#00ff00" },
+	{ "full_text" : " WL ${addr wlp2s0}", "separator": false, "color" : "\#00ff00" },
+	{ "full_text" : "${exec awk 'NR==3 {printf "%.0f", ($3/70)*100}' /proc/net/wireless}% ", "color" : "\#ffffff" },
 ${else}
 	{ "full_text" : " WL Down ", "color" : "\#ff0000" },
 ${endif}
@@ -54,13 +51,13 @@ ${endif}${endif}${endif}
 
 ## CPU
 { "full_text" : " CPU ${cpu cpu0}% ", "color" :
-    ${if_match ${cpu cpu0}<74}"\#00ff00"${else}"\#ff0000"${endif} 
+    ${if_match ${cpu cpu0}<74}"\#00ff00"${else}"\#ff0000"${endif}
 },
 
 #{ "full_text" : " I/O ${diskio /dev/sda} "	, "color" : "\#ffffff" },
 
 ## Volume
-#{ "full_text" : " Vol ${}", "color" : "\#ff0000"},
+{ "full_text" : " Vol ${exec pactl list sinks | perl -000ne 'if(/#1/){/(Volume:.*)/; print "$1\n"}' | awk '{print $5}'}", "color" : "\#ffffff"},
 
 ## Battery
 { "full_text" : " BAT ${battery_percent}% ", "color" :
