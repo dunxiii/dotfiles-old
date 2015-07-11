@@ -1,12 +1,17 @@
 # Set keymap for X11
 setxkbmap se
 
+# Map caps lock to esc
+xmodmap -e 'clear Lock'
+xmodmap -e 'keycode 0x42=Escape'
+
 # Merge Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 
 # Startup applications
 #exec --no-startup-id feh --bg-scale ~/Insync/Bilder/0dnZS6U.jpg
+exec pulseaudio --start &
 exec insync start &
 exec gnome-terminal --zoom=0.8 --role=systemd-logg -e "/bin/zsh -c 'journalctl -af --no-tail'" &
 
