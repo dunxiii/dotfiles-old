@@ -4,10 +4,10 @@ filetype off            " Required by Vundle
 "
 " Plugins
 "
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"Plugin 'ConradIrwin/vim-bracketed-paste'
 "Plugin 'benmills/vimux'
 "Plugin 'ervandew/supertab'
 "Plugin 'flazz/vim-colorschemes'
@@ -17,16 +17,18 @@ call vundle#begin()
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'tpope/vim-surround'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'gmarik/Vundle.vim'
+"Plugin 'godlygeek/tabular'
 Plugin 'ntpeters/vim-better-whitespace'
+"Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
@@ -36,10 +38,11 @@ filetype plugin indent on   " required
 "
 
 " vim-notes
-let g:notes_directories = ['~/dunxiii@gmail.com/notes', '~/dunxiii@gmail.com/Nix/operating_system_setup']
+let g:notes_directories = ['~/dunxiii@gmail.com/tech/nix/note']
 let g:notes_suffix = '.txt'
-let g:notes_word_boundaries = 1
+let g:notes_word_boundaries = 0
 let g:notes_tab_indents = 0         "Removes tab indentation on list items
+let g:notes_smart_quotes = 0
 
 " vim-airline
 let g:airline_powerline_fonts = 1   "Populate airline symbos properly
@@ -76,13 +79,13 @@ let g:gitgutter_eager = 1
 "
 
 let mapleader=" "
-"set number                              " show row numbers
 "set dictionary+=/usr/share/dict/words  " path to dictionary
 set encoding=utf-8 fileencodings=       " use utf8 by default
 set showmode				" show current mode down the bottom
 "set cursorline              " show current line of cursor
 "set cursorcolumn            " show current cloumn of cursor
 set relativenumber          " show relative numbers instead of absolute
+set number                  " show row numbers
 "set undofile               " creates file.un~ so you can allways undo changes
 set nowrap				    " dont wrap lines
 
@@ -109,11 +112,12 @@ set laststatus=2
 
 function! NumberToggle()
   if(&relativenumber)
-    set norelativenumber
-    set number
+    set nornu
+    set nu
   else
-    set nonumber
-    set relativenumber
+    set nonu
+    set rnu
+    set nu
   endif
 endfunc
 
@@ -166,11 +170,15 @@ nmap <LEADER>§ :set nonumber norelativenumber<CR>
 nmap § :call NumberToggle()<CR>
 
 " Sort block of lines
-vmap <LEADER>s :sort<CR>
+vmap <leader>s :sort<CR>
 
 " Better indentation
 vmap < <gv
 vmap > >gv
+
+" Better increment/decrementing
+vmap <C-a> <C-a>gv
+vmap <C-x> <C-x>gv
 
 " Save file as root
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
