@@ -10,6 +10,23 @@ zstyle :compinstall filename '/home/jack/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+setopt HIST_IGNORE_DUPS
+
+autoload -U promptinit
+promptinit
+
+#
+# Get some keys to work normal
+#
+bindkey "[3~" delete-char
+
+# for freebsd console
+bindkey "[H" beginning-of-line
+bindkey "[F" end-of-line
+
+# for rxvt
+# bindkey "[8~" end-of-line
+# bindkey "[7~" beginning-of-line
 
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
 
