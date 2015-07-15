@@ -17,18 +17,18 @@ call vundle#begin()
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'tpope/vim-surround'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'godlygeek/tabular'
 Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
