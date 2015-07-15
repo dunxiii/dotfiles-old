@@ -138,7 +138,9 @@ for_window [window_role="systemd-logg"] move workspace number $tag10
 #
 bar {
 	position top
-	status_command $HOME/.conky/.conky_init.sh
+    workspace_buttons yes
+    status_command python ~/.i3/i3status.py
+	#status_command $HOME/.conky/.conky_init.sh
 
     colors {
         background  #222222
