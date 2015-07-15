@@ -33,7 +33,8 @@ status.register("mem", format=" MEM {percent_used_mem}%")
 
 status.register("cpu_usage",
                 format= "CPU {usage}%",
-                hints={ "full_text":    "CPU 4%",
+                hints={ "color":        "#ffffff",
+                        "full_text":    "CPU 4%",
                         "min_width":    "CPU 100%",
                         "align":        "center"
                 })
