@@ -149,7 +149,8 @@ nnoremap Q <nop>
 "
 
 " Remove cursor movement after exiting insert mode
-inoremap <silent> <Esc> <Esc>`^
+"inoremap <silent> <Esc> <Esc>`^
+autocmd InsertLeave * :normal `^
 "imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Move between splits with CTRL+[hjkl]
