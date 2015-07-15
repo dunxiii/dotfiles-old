@@ -18,6 +18,7 @@ status.register("battery",
                         "markup": "pango"},
                 format=" <span font-family=\"FontAwesome\">{status}</span> {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm} ",
                 alert_percentage=15,
+                charging_color="#F2FF00",
                 status={
                     "DIS": "",
                     "CHR": "",
