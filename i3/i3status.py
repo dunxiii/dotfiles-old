@@ -69,4 +69,9 @@ status.register("disk",
         path="/",
         format="root {percentage_used:.0f}% ")
 
+status.register("disk",
+        hints={"color":"#ffffff"},
+        path="/boot",
+        format="boot {percentage_used:.0f}% ")
+
 status.run()
