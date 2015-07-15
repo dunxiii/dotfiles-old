@@ -11,20 +11,21 @@ psutil
 
 status = Status(standalone=True)
 
-status.register("clock", format=" %d %B %H:%M",hints={"color":"#ffffff"})
+status.register("clock", format="  %d %B %H:%M",hints={"color":"#ffffff"})
 
 status.register("battery",
-                hints={"color":"#ffffff"},
-                format=" {status} {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm} ",
+                hints={ "color":"#ffffff",
+                        "markup": "pango"},
+                format=" <span font-family=\"FontAwesome\">{status}</span> {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm} ",
                 alert_percentage=15,
                 status={
-                    "DIS": "↓",
-                    "CHR": "↑",
-                    "FULL": "=",
+                    "DIS": "",
+                    "CHR": "",
+                    "FULL": "",
                 })
 
 status.register("pulseaudio",
-                format=" Vol {volume}% ",
+                format="   {volume}% ",
                 hints={"color":"#ffffff"})
 
 status.register("mem", format=" MEM {percent_used_mem}%")
