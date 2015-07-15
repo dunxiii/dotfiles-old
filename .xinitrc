@@ -13,7 +13,8 @@ xmodmap -e 'keycode 0x42=Escape'
 #exec --no-startup-id feh --bg-scale ~/Insync/Bilder/0dnZS6U.jpg
 exec pulseaudio --start &
 exec insync start &
-exec gnome-terminal --zoom=0.8 --role=systemd-logg -e "/bin/zsh -c 'journalctl -af --no-tail'" &
+exec gnome-terminal --zoom=0.8 --role=systemd-logg -e "/bin/zsh -c 'journalctl -afb'" &
+#exec gnome-terminal --zoom=0.8 --role=systemd-logg -e "/bin/zsh -c 'journalctl -af --no-tail'" &
 
 
 
