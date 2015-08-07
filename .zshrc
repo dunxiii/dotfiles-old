@@ -16,6 +16,13 @@ autoload -U promptinit
 promptinit
 
 #
+# Default editors
+#
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
+export SUDO_EDITOR=/usr/bin/vim
+
+#
 # Get some keys to work normal
 #
 bindkey "[3~" delete-char
