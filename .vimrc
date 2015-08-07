@@ -162,10 +162,6 @@ nmap <C-l> <C-w>l
 " Clear search results
 nmap <LEADER>/ :nohl<CR>
 
-" Save and Quit
-nmap <C-z> :update<CR>
-nmap <C-x> :quit<CR>
-
 " Sidepanel numbers
 nmap <LEADER>§ :set nonumber norelativenumber<CR>
 nmap § :call NumberToggle()<CR>
