@@ -6,6 +6,7 @@
 # Settings
 #
 set $mod Mod4
+set $term urxvtc
 force_display_urgency_hint 1000 ms
 focus_follows_mouse no
 
@@ -30,8 +31,9 @@ font pango: Bitstream Vera Sans, FontAwesome 8
 #
 # Keybinds
 #
-bindsym $mod+Return     exec --no-startup-id gnome-terminal
-bindsym $mod+BackSpace  exec --no-startup-id gnome-terminal -e "/bin/zsh -c 'ranger ~'"
+bindsym $mod+Return     exec --no-startup-id $term
+bindsym $mod+BackSpace  exec --no-startup-id $term -e /bin/zsh -c "ranger ~" # URxvt
+#bindsym $mod+BackSpace  exec --no-startup-id $term -e "/bin/zsh -c 'ranger ~'" # Gnome-term
 bindsym $mod+d          exec --no-startup-id dmenu_run
 bindsym Print           exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 bindsym $mod+u          exec devmon --unmount-removable
@@ -157,13 +159,16 @@ bar {
 #
 # Scratchpads
 #
-bindsym $mod+n  exec --no-startup-id test -z $(xdotool search --class vimNotes) && gnome-terminal -e "/bin/zsh -c 'xdotool getactivewindow set_window --class vimNotes && /bin/zsh'"; [class="vimNotes"] scratchpad show
+
+#bindsym $mod+n  exec --no-startup-id test -z $(xdotool search --class vimNotes) && gnome-terminal -e "/bin/zsh -c 'xdotool getactivewindow set_window --class vimNotes && /bin/zsh'"; [class="vimNotes"] scratchpad show
+bindsym $mod+n exec --no-startup-id test -z $(xdotool search --classname vimNotes) && urxvtc -name vimNotes; [instance="vimNotes"] scratchpad show
 bindsym $mod+p  exec --no-startup-id test -z $(xdotool search --class Keepassx) && keepassx; [class="Keepassx"] scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-for_window [class="Gnome-terminal" class="vimNotes"] move scratchpad, scratchpad show
+#for_window [class="Gnome-terminal" class="vimNotes"] move scratchpad, scratchpad show
+for_window [instance="vimNotes"] move scratchpad, scratchpad show
 for_window [class="Keepassx"] move scratchpad, scratchpad show
 
 #
@@ -184,7 +189,8 @@ new_float   1pixel
 #for_window [class="Gnome-terminal"] border none
 
 # Border windows
-for_window [class="Gnome-terminal" class="vimNotes"] border 1pixel
+for_window [instance="vimNotes"] border 1pixel
+#for_window [class="Gnome-terminal" class="vimNotes"] border 1pixel
 for_window [class="Keepassx"] border 1pixel
 
 #
