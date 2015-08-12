@@ -161,8 +161,8 @@ bar {
 #
 
 #bindsym $mod+n  exec --no-startup-id test -z $(xdotool search --class vimNotes) && gnome-terminal -e "/bin/zsh -c 'xdotool getactivewindow set_window --class vimNotes && /bin/zsh'"; [class="vimNotes"] scratchpad show
-bindsym $mod+n exec --no-startup-id test -z $(xdotool search --classname vimNotes) && urxvtc -name vimNotes; [instance="vimNotes"] scratchpad show
-bindsym $mod+p  exec --no-startup-id test -z $(xdotool search --class Keepassx) && keepassx; [class="Keepassx"] scratchpad show
+bindsym $mod+n exec --no-startup-id test -z $(xprop -name vimNotes) && urxvtc -name vimNotes; [instance="vimNotes"] scratchpad show
+bindsym $mod+p  exec --no-startup-id test -z $(xprop -name "Database.kdbx - KeePassX") && keepassx; [class="Keepassx"] scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
