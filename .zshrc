@@ -28,14 +28,12 @@ export SUDO_EDITOR=/usr/bin/vim
 bindkey "[3~" delete-char
 
 # for freebsd console
-bindkey "[H" beginning-of-line
-bindkey "[F" end-of-line
+#bindkey "[H" beginning-of-line
+#bindkey "[F" end-of-line
 
 # for rxvt
-# bindkey "[8~" end-of-line
-# bindkey "[7~" beginning-of-line
-
-eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
+bindkey "[8~" end-of-line
+bindkey "[7~" beginning-of-line
 
 #
 # Aliases
@@ -48,8 +46,9 @@ alias pacs='sudo pacman -S'
 alias pacr='sudo pacman -Rs'
 
 # ls
-alias ls='ls -A1 --color=auto'
-alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias ls='ls'
+alias ll='ls -l'
 
 alias se='sudoedit'
 alias grep='grep --color'
