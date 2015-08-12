@@ -134,7 +134,8 @@ bindsym $mod+Shift+0 move container to workspace $tag10
 #assign [class="Skype"] $tag9
 #assign [class="VirtualBox"] $tag10
 #assign [window_role="systemd-logg"] $tag10
-for_window [window_role="systemd-logg"] move workspace number $tag10
+#for_window [window_role="systemd-logg"] move workspace number $tag10
+for_window [instance="systemd-logg"] move workspace number $tag10
 
 #
 # statusbar
