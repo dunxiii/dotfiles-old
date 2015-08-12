@@ -23,9 +23,6 @@
     ~/.i3:
         force: true
         path: i3/
-#    ~/.conky:
-#        force: true
-#        path: conky/
     ~/.config/ranger:
         create: true
         force: true
@@ -36,11 +33,10 @@
     ~/.Xresources:
         force: true
         path: .Xresources
-
-# Install fonts
-- shell:
-    - ./fonts/install.sh
-    - fc-cache
+    ~/.urxvt/ext:
+        create: true
+        force: true
+        path: urxvt-font-size/
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
