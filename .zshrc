@@ -37,6 +37,19 @@ bindkey "[F" end-of-line
 
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
 
-alias grep='grep --color'
+#
+# Aliases
+#
+
+# Pacman
+alias suy='sudo pacman -Suy'
+alias syy='sudo pacman -Syy'
+alias pacs='sudo pacman -S'
+alias pacr='sudo pacman -Rs'
+
+# ls
 alias ls='ls -A1 --color=auto'
 alias ll='ls -l --color=auto'
+
+alias se='sudoedit'
+alias grep='grep --color'
