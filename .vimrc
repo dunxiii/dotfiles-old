@@ -19,10 +19,10 @@ call vundle#begin()
 "Plugin 'tpope/vim-surround'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
+"Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -45,11 +45,11 @@ let g:notes_tab_indents = 0         "Removes tab indentation on list items
 let g:notes_smart_quotes = 0
 
 " vim-airline
-let g:airline_powerline_fonts = 1   "Populate airline symbos properly
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
+"let g:airline_powerline_fonts = 1   "Populate airline symbos properly
+"let g:airline_right_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_left_alt_sep= ''
+"let g:airline_left_sep = ''
 
 " solarized theme
 syntax enable
