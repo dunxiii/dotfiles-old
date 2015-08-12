@@ -102,8 +102,8 @@ set $tag4 4
 set $tag5 5
 set $tag6 6
 set $tag7 7
-set $tag8 8
-set $tag9 9
+set $tag8 "8:www"
+set $tag9 "9:virt"
 set $tag10 "10:log"
 
 bindsym $mod+1 workspace $tag1
