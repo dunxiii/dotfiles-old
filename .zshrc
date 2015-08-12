@@ -47,8 +47,17 @@ alias pacr='sudo pacman -Rs'
 
 # ls
 alias ls='ls --color=auto'
-alias ls='ls'
 alias ll='ls -l'
 
 alias se='sudoedit'
 alias grep='grep --color'
+
+#
+# Oh my zsh
+#
+export ZSH=/home/jack/.oh-my-zsh
+DISABLE_AUTO_UPDATE="true"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+plugins=(git systemd cp)
+ZSH_THEME="gentoo"
+source $ZSH/oh-my-zsh.sh
