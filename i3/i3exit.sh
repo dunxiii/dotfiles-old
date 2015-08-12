@@ -6,7 +6,7 @@ function lock {
     # scrot
 
     IMAGE=/tmp/i3lock.png
- 
+
     # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
     BLURTYPE="0x5" # 7.52s
 
