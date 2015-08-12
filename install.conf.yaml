@@ -1,7 +1,7 @@
 - clean: ['~', '~/.config', '~/.vim/bundle/']
 
 - shell:
-    - mkdir -p ~/{Downloads}
+    - mkdir -p ~/{Downloads,Documents}
 
 - link:
     ~/.zshrc:
@@ -23,9 +23,9 @@
     ~/.i3:
         force: true
         path: i3/
-    ~/.conky:
-        force: true
-        path: conky/
+#    ~/.conky:
+#        force: true
+#        path: conky/
     ~/.config/ranger:
         create: true
         force: true
@@ -33,9 +33,9 @@
     ~/.xinitrc:
         force: true
         path: .xinitrc
-#    ~/.Xresources:
-#        force: true
-#        path: .Xresources
+    ~/.Xresources:
+        force: true
+        path: .Xresources
 
 # Install fonts
 - shell:
