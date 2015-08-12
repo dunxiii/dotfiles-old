@@ -1,8 +1,7 @@
 from i3pystatus import Status
 
 """
-Dependency:
-github.com/Valodim/python-pulseaudio/archive/master.zip
+Python packet dependency:
 colour
 netifaces
 basiciw
