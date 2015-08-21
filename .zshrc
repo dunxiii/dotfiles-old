@@ -25,15 +25,13 @@ export SUDO_EDITOR=/usr/bin/vim
 #
 # Get some keys to work normal
 #
-bindkey "[3~" delete-char
-
-# for freebsd console
-#bindkey "[H" beginning-of-line
-#bindkey "[F" end-of-line
-
-# for rxvt
-bindkey "[8~" end-of-line
-bindkey "[7~" beginning-of-line
+case "$TERM" in
+    rxvt-unicode-256color)
+        bindkey "[8~" end-of-line
+        bindkey "[7~" beginning-of-line
+        bindkey "[3~" delete-char
+        ;;
+esac
 
 #
 # Aliases
