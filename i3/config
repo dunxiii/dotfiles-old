@@ -86,10 +86,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Laptop keybinds
-bindsym $mod+F3     exec --no-startup-id zenbook-kbd-light.sh -d
-bindsym $mod+F4     exec --no-startup-id zenbook-kbd-light.sh -u
-bindsym $mod+F5     exec --no-startup-id intel-backlight-brightness.sh -d
-bindsym $mod+F6     exec --no-startup-id intel-backlight-brightness.sh -u
+bindsym $mod+F3     exec --no-startup-id zenbook-lights -k -d
+bindsym $mod+F4     exec --no-startup-id zenbook-lights -k -u
+bindsym $mod+F5     exec --no-startup-id zenbook-lights -s -d
+bindsym $mod+F6     exec --no-startup-id zenbook-lights -s -u
 bindsym $mod+F10    exec --no-startup-id pactl set-sink-mute 1 toggle
 bindsym $mod+F11    exec --no-startup-id pactl set-sink-volume 1 -5%
 bindsym $mod+F12    exec --no-startup-id pactl set-sink-volume 1 +5%
