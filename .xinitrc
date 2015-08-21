@@ -1,9 +1,15 @@
 # Set keymap for X11
 setxkbmap se
 
-# Map caps lock to esc
-xmodmap -e 'clear Lock'
-xmodmap -e 'keycode 0x42=Escape'
+# Disable Caps Lock and make it Esc instead
+#xmodmap -e "remove Lock = Caps_Lock"
+#xmodmap -e "keysym Caps_Lock = Escape"
+#xmodmap -e "add Lock = Caps_Lock"
+
+# Disable Caps Lock and make it Ctrl instead
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keysym Caps_Lock = Control_L"
+xmodmap -e "add Control = Control_L"
 
 # Merge Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
