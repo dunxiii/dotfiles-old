@@ -37,6 +37,10 @@
         create: true
         force: true
         path: urxvt-font-size/
+    ~/.config/zathura/zathurarc:
+        create: true
+        force: true
+        path: zathurarc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
