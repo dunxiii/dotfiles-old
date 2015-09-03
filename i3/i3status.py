@@ -10,7 +10,7 @@ psutil
 
 status = Status(standalone=True)
 
-status.register("clock", format="  %d %B %H:%M",hints={"color":"#ffffff"})
+status.register("clock", format=" %d %B %H:%M",hints={"color":"#ffffff"})
 
 status.register("battery",
                 hints={ "color":"#ffffff",
