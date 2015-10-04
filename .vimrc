@@ -27,6 +27,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-fugitive'
+Plugin 'unblevable/quick-scope'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 
@@ -74,13 +75,16 @@ let g:gitgutter_eager = 1
 "    \ "!level":  "errors",
 "    \ "type":    "style"}
 
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 "
 " Vim settings
 "
 
 let mapleader=" "
 "set dictionary+=/usr/share/dict/words  " path to dictionary
-set encoding=utf-8 fileencodings=       " use utf8 by default
+set encoding=utf-8 "fileencodings=       " use utf8 by default
 set showmode				" show current mode down the bottom
 "set cursorline              " show current line of cursor
 "set cursorcolumn            " show current cloumn of cursor
@@ -143,6 +147,7 @@ noremap <left> <nop>
 
 " disable Ex mode
 nnoremap Q <nop>
+nnoremap q: <nop>
 
 "
 " Personal Keybinds
@@ -161,6 +166,11 @@ nmap <C-l> <C-w>l
 
 " Clear search results
 nmap <LEADER>/ :nohl<CR>
+
+" fugutive shortcuts
+nmap <LEADER>w :Gw<CR>
+nmap <LEADER>c :Gcommit<CR>
+nmap <LEADER>d :Gdiff<CR>
 
 " Sidepanel numbers
 nmap <LEADER>§ :set nonumber norelativenumber<CR>
