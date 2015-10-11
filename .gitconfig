@@ -1,5 +1,7 @@
 [user]
 	email = dunxiii@gmail.com
-	name = dunxiii
+	name = "Jack Söderblom"
 [push]
 	default = simple
+[color]
+	ui = true
