@@ -1,33 +1,20 @@
-!Xft.dpi: 120
-!Xft.antialias: true
-!Xft.hinting: true
-!Xft.rgba: rgb
-!Xft.autohint: false
-!Xft.hintstyle: hintslight
-!Xft.lcdfilter: lcddefault
-
-URxvt.perl-ext-common:  font-size
-URxvt.keysym.C-plus:    font-size:increase
-URxvt.keysym.C-minus:   font-size:decrease
-URxvt.keysym.C-0:       font-size:reset
-
-!URxvt.internalBorder: 0
+! General settings
 URxvt.intensityStyles: false
 URxvt.scrollBar: false
 URxvt.fading: 30
 URxvt.font: xft:Inconsolata for Powerline:size=11
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-!URxvt.meta8: true
 URxvt.letterSpace: -1
 
-!URxvt*font: xft:Literation Mono Powerline:pixelsize=15
-!URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=13
-!URxvt*font: xft:Droid Sans Mono for Powerline:pixelsize=13
-!URxvt*font: xft:Sauce Code Powerline:pixelsize=13
+! Live font resize
+URxvt.perl-ext-common:  font-size
+URxvt.keysym.C-plus:    font-size:increase
+URxvt.keysym.C-minus:   font-size:decrease
+URxvt.keysym.C-0:       font-size:reset
 
-! COLORSCHEME
-! Solarized
+
+! Colorscheme Solarized
 ! Common
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
@@ -37,7 +24,6 @@ URxvt.letterSpace: -1
 #define S_blue          #268bd2
 #define S_cyan          #2aa198
 #define S_green         #859900
-
 ! Dark
 #define S_base03        #002b36
 #define S_base02        #073642
@@ -47,7 +33,6 @@ URxvt.letterSpace: -1
 #define S_base1         #93a1a1
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
-
 ! Light
 ! #define S_base03        #fdf6e3
 ! #define S_base02        #eee8d5
@@ -57,7 +42,6 @@ URxvt.letterSpace: -1
 ! #define S_base1         #586e75
 ! #define S_base2         #073642
 ! #define S_base3         #002b36
-
 ! Set colors
 URxvt*background:              S_base03
 URxvt*foreground:              S_base0
@@ -66,7 +50,6 @@ URxvt*fadeColor:               S_base03
 URxvt*cursorColor:             S_base1
 URxvt*pointerColorBackground:  S_base01
 URxvt*pointerColorForeground:  S_base1
-
 URxvt*color0:                  S_base02
 URxvt*color1:                  S_red
 URxvt*color2:                  S_green
