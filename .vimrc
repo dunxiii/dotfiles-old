@@ -54,13 +54,12 @@ let g:notes_smart_quotes = 0
 
 " solarized theme
 syntax enable
-"set t_Co=16     "Fix for roxterm
 set background=dark
 colorscheme solarized
 
 " vim-gitgutter
 highlight clear SignColumn          "Fix for gitgutter
-let g:gitgutter_realtime = 1
+let g:gitgutter_realtime = 1        "Faster update
 let g:gitgutter_eager = 1
 
 " syntastic
@@ -76,12 +75,11 @@ let g:gitgutter_eager = 1
 "    \ "type":    "style"}
 
 " quick-scope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
 
 "
 " Vim settings
 "
-
 let mapleader=" "
 "set dictionary+=/usr/share/dict/words  " path to dictionary
 set encoding=utf-8 "fileencodings=       " use utf8 by default
@@ -90,9 +88,7 @@ set showmode				" show current mode down the bottom
 "set cursorcolumn            " show current cloumn of cursor
 set relativenumber          " show relative numbers instead of absolute
 set number                  " show row numbers
-"set undofile               " creates file.un~ so you can allways undo changes
 set nowrap				    " dont wrap lines
-
 
 " Searching
 " fix broken regex search
@@ -113,40 +109,20 @@ set laststatus=2
 "
 " Functions
 "
-
 function! NumberToggle()
-  if(&relativenumber)
-    set nornu
-    set nu
-  else
-    set nonu
-    set rnu
-    set nu
-  endif
+    if(&relativenumber)
+        " Set absolute numbering
+        set nornu nu
+    else
+        " Set relative numbering
+        set nonu rnu
+    endif
 endfunc
 
-"
-" Vim Hardmode
-"
-inoremap <up> <nop>
-vnoremap <up> <nop>
-noremap <up> <nop>
-inoremap <down> <nop>
-vnoremap <down> <nop>
-noremap <down> <nop>
-inoremap <right> <nop>
-vnoremap <right> <nop>
-noremap <right> <nop>
-inoremap <left> <nop>
-vnoremap <left> <nop>
-noremap <left> <nop>
-"noremap h <nop>
-"noremap j <nop>
-"noremap k <nop>
-"noremap l <nop>
 
 " disable Ex mode
 nnoremap Q <nop>
+" disable weird meny
 nnoremap q: <nop>
 
 "
@@ -155,7 +131,7 @@ nnoremap q: <nop>
 
 " Remove cursor movement after exiting insert mode
 "inoremap <silent> <Esc> <Esc>`^
-autocmd InsertLeave * :normal `^
+"autocmd InsertLeave * :normal `^
 "imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Move between splits with CTRL+[hjkl]
