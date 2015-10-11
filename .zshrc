@@ -15,6 +15,9 @@ setopt HIST_IGNORE_DUPS
 autoload -U promptinit
 promptinit
 
+# Make colors behave correct
+export TERM=xterm-256color
+
 #
 # Default editors
 #
@@ -26,27 +29,20 @@ export SUDO_EDITOR=/usr/bin/vim
 # Get some keys to work normal
 #
 case "$TERM" in
-    rxvt-unicode-256color)
+    xterm-256color)
         bindkey "[8~" end-of-line
         bindkey "[7~" beginning-of-line
         bindkey "[3~" delete-char
+        # Disables flow control in terminal, ctrl+s does not freeze
+        stty -ixon
         ;;
 esac
 
 #
 # Aliases
 #
-
-# Pacman
-alias suy='sudo pacman -Suy'
-alias syy='sudo pacman -Syy'
-alias pacs='sudo pacman -S'
-alias pacr='sudo pacman -Rs'
-
-# ls
 alias ls='ls --color=auto'
 alias ll='ls -l'
-
 alias se='sudoedit'
 alias grep='grep --color'
 
