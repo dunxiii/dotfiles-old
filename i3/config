@@ -2,6 +2,8 @@
 # i3 config file (v4)
 # http://i3wm.org/docs/userguide.html
 
+#The first part of the WM_CLASS is the instance, the second part is the class.
+
 #
 # Settings
 #
@@ -131,10 +133,8 @@ bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
 # Put some autostarted applications in specific workspaces
-#assign [class="Skype"] $tag9
-#assign [class="VirtualBox"] $tag10
-#assign [window_role="systemd-logg"] $tag10
-#for_window [window_role="systemd-logg"] move workspace number $tag10
+for_window [class="Chromium"] move workspace number $tag8
+for_window [class="VirtualBox"] move workspace number $tag9
 for_window [instance="systemd-logg"] move workspace number $tag10
 
 #
@@ -162,7 +162,8 @@ bar {
 #
 
 #bindsym $mod+n  exec --no-startup-id test -z $(xdotool search --class vimNotes) && gnome-terminal -e "/bin/zsh -c 'xdotool getactivewindow set_window --class vimNotes && /bin/zsh'"; [class="vimNotes"] scratchpad show
-bindsym $mod+n exec --no-startup-id test -z $(xprop -name vimNotes) && urxvtc -name vimNotes; [instance="vimNotes"] scratchpad show
+#bindsym $mod+n exec --no-startup-id test -z $(xprop -name vimNotes) && urxvtc -name vimNotes; [instance="vimNotes"] scratchpad show
+bindsym $mod+n exec --no-startup-id [instance="vimNotes"] || urxvtc -name vimNotes; [instance="vimNotes"] scratchpad show
 bindsym $mod+p  exec --no-startup-id test -z $(xprop -name "Database.kdbx - KeePassX") && keepassx; [class="Keepassx"] scratchpad show
 
 bindsym $mod+Shift+minus move scratchpad
