@@ -13,9 +13,8 @@ status = Status(standalone=True)
 status.register("clock", format=" %d %B %H:%M",hints={"color":"#ffffff"})
 
 status.register("battery",
-                hints={ "color":"#ffffff",
-                        "markup": "pango"},
-                format=" <span font-family=\"FontAwesome\">{status}</span> {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm} ",
+                hints={ "color":"#ffffff"},
+                format=" {status} {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm} ",
                 alert_percentage=15,
                 charging_color="#F2FF00",
                 status={
@@ -41,25 +40,14 @@ status.register("cpu_usage",
 status.register("dpms", hints={"color":"#ffffff"})
 
 status.register("network",
-        interface="enp0s20u1",
+        interface="eth0",
         format_up=" {v4cidr} ",
         format_down="")
 
 status.register("network",
-        interface=" enp0s20u2 ",
-        format_up="{v4cidr}",
-        format_down="")
-
-status.register("network",
-        interface=" enp0s20u3 ",
-        format_up="{v4cidr}",
-        format_down="")
-
-status.register("network",
-        interface="wlp2s0",
-        format_up=" {essid} {quality:03.0f}% <span color=\"#ffffff\">{v4cidr}</span> ",
-        interval=5,
-        hints={"markup": "pango"})
+        interface="wlan0",
+        format_up=" {essid} {quality:03.0f}% ",
+        interval=5)
 
 status.register("disk",
         hints={"color":"#ffffff"},

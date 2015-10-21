@@ -15,8 +15,8 @@ setopt HIST_IGNORE_DUPS
 autoload -U promptinit
 promptinit
 
-# Make colors behave correct
-export TERM=xterm-256color
+# only load user profile for ranger
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 #
 # Default editors
@@ -26,23 +26,11 @@ export VISUAL=/usr/bin/vim
 export SUDO_EDITOR=/usr/bin/vim
 
 #
-# Get some keys to work normal
-#
-case "$TERM" in
-    xterm-256color)
-        bindkey "[8~" end-of-line
-        bindkey "[7~" beginning-of-line
-        bindkey "[3~" delete-char
-        # Disables flow control in terminal, ctrl+s does not freeze
-        stty -ixon
-        ;;
-esac
-
-#
 # Aliases
 #
 alias ls='ls --color=auto'
 alias ll='ls -l'
+alias lla='ls -la'
 alias se='sudoedit'
 alias grep='grep --color'
 

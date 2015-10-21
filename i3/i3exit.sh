@@ -1,27 +1,7 @@
 #!/bin/bash
 
 function lock {
-    # Dependencies:
-    # imagemagick
-    # scrot
-
-    #IMAGE=/tmp/i3lock.png
-
-    ## All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
-    #BLURTYPE="0x5" # 7.52s
-
-    ## List fonts with command "convert -list font"
-
-    ## Take screenshot
-    #scrot $IMAGE
-
-    ## Add locksymbol to screenshot
-    #convert $IMAGE -level 0%,100%,0.6 -blur $BLURTYPE -font Inconsolata-for-Powerline -pointsize 26 -fill white -gravity center -annotate +0+200 "$user" - | composite -gravity center /home/jack/.i3/lock.png - $IMAGE
-
-    ## Lock computer with screenshot as background
-    #i3lock -ui $IMAGE
-    #rm $IMAGE
-    i3lock -c 002b36
+    i3lock -i ~/Pictures//wallpaper.png
 }
 
 case "$1" in

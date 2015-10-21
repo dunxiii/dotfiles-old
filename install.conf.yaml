@@ -1,8 +1,5 @@
 - clean: ['~', '~/.config', '~/.vim/bundle/']
 
-- shell:
-    - mkdir -p ~/{Downloads,Documents}
-
 - link:
     ~/.zshrc:
         force: true
@@ -20,9 +17,12 @@
     ~/.gitconfig:
         force: true
         path: .gitconfig
-    ~/.i3:
+    ~/.i3/config:
         force: true
-        path: i3/
+        path: i3/config
+    ~/.i3/i3status.py:
+        force: true
+        path: i3/i3status.py
     ~/.config/ranger:
         create: true
         force: true
@@ -30,17 +30,13 @@
     ~/.xinitrc:
         force: true
         path: .xinitrc
-    ~/.Xresources:
-        force: true
-        path: .Xresources
-    ~/.urxvt/ext:
-        create: true
-        force: true
-        path: urxvt-font-size/
     ~/.config/zathura/zathurarc:
         create: true
         force: true
         path: zathurarc
+    ~/bin/i3exit.sh:
+        create: true
+        path: i3/i3exit.sh
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

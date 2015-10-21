@@ -20,7 +20,7 @@ call vundle#begin()
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -39,7 +39,7 @@ filetype plugin indent on   " required
 "
 
 " vim-notes
-let g:notes_directories = ['~/dunxiii@gmail.com/tech/nix/note']
+let g:notes_directories = ['~/insync/tech/nix/note']
 let g:notes_suffix = '.txt'
 let g:notes_word_boundaries = 0
 let g:notes_tab_indents = 0         "Removes tab indentation on list items
@@ -54,8 +54,8 @@ let g:notes_smart_quotes = 0
 
 " solarized theme
 syntax enable
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 " vim-gitgutter
 highlight clear SignColumn          "Fix for gitgutter
@@ -86,7 +86,6 @@ set encoding=utf-8 "fileencodings=       " use utf8 by default
 set showmode				" show current mode down the bottom
 "set cursorline              " show current line of cursor
 "set cursorcolumn            " show current cloumn of cursor
-set relativenumber          " show relative numbers instead of absolute
 set number                  " show row numbers
 set nowrap				    " dont wrap lines
 
