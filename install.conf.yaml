@@ -23,10 +23,10 @@
     ~/.i3/i3status.py:
         force: true
         path: i3/i3status.py
-    ~/.config/ranger:
+    ~/.config/ranger/rc.conf:
         create: true
         force: true
-        path: ranger
+        path: ranger/rc.conf
     ~/.xinitrc:
         force: true
         path: .xinitrc
