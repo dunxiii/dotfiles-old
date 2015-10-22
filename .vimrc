@@ -52,10 +52,8 @@ let g:notes_smart_quotes = 0
 "let g:airline_left_alt_sep= ''
 "let g:airline_left_sep = ''
 
-" solarized theme
+" syntax highlight enabled
 syntax enable
-"set background=dark
-"colorscheme solarized
 
 " vim-gitgutter
 highlight clear SignColumn          "Fix for gitgutter
