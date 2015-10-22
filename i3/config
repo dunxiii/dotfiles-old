@@ -88,7 +88,7 @@ bindsym $mod+F4     exec --no-startup-id zenbook-lights -k -u
 bindsym $mod+F5     exec --no-startup-id zenbook-lights -s -d
 bindsym $mod+F6     exec --no-startup-id zenbook-lights -s -u
 bindsym $mod+F10    exec --no-startup-id pactl set-sink-mute 1 toggle
-bindsym $mod+F11    exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym $mod+F11    exec --no-startup-id pactl -- set-sink-volume 1 -5%
 bindsym $mod+F12    exec --no-startup-id pactl set-sink-volume 1 +5%
 
 #
