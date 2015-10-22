@@ -14,7 +14,7 @@ status.register("clock", format=" %d %B %H:%M",hints={"color":"#ffffff"})
 
 status.register("battery",
                 hints={ "color":"#ffffff"},
-                format=" {status} {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm} ",
+                format=" {status} {consumption:.0f}W {percentage:.2f}% {remaining:%E%hh:%Mm}",
                 alert_percentage=15,
                 charging_color="#F2FF00",
                 status={
@@ -37,7 +37,9 @@ status.register("cpu_usage",
                         "align":        "center"
                 })
 
-status.register("dpms", hints={"color":"#ffffff"})
+status.register("dpms",
+                format = " DPMS: {status} ",
+                hints={"color":"#ffffff"})
 
 status.register("network",
         interface="eth0",
