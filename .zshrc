@@ -28,9 +28,7 @@ export SUDO_EDITOR=/usr/bin/vim
 #
 # Aliases
 #
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias lla='ls -la'
+alias ls='ls --color=auto -h'
 alias se='sudoedit'
 alias grep='grep --color'
 
@@ -40,6 +38,6 @@ alias grep='grep --color'
 export ZSH=/home/jack/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-plugins=(git systemd cp)
+plugins=(git systemd cp common-aliases)
 ZSH_THEME="gentoo"
 source $ZSH/oh-my-zsh.sh
