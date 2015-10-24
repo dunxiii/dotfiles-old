@@ -37,6 +37,10 @@
     ~/bin/i3exit.sh:
         create: true
         path: i3/i3exit.sh
+    ~/.config/terminator/config:
+        create: true
+        force: true
+        path: terminator/config
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
