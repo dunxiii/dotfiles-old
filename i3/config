@@ -20,7 +20,7 @@ client.unfocused        #333333 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Bitstream comes from chromium packet
-font pango:DejaVu Sans Mono 8, FontAwesome 8
+font pango: DejaVu Sans Mono:style=Book, FontAwesome 9
 
 #
 # Keybinds
