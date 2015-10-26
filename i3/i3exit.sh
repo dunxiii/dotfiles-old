@@ -1,7 +1,9 @@
 #!/bin/bash
 
-function lock {
-    i3lock -i ~/Pictures/wallpaper.png
+user=$(w -sh | grep tty$(fgconsole) | awk '{ print $1 }')
+
+lock() {
+    i3lock -i /home/$user/Pictures/wallpaper.png
 }
 
 case "$1" in
