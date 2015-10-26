@@ -55,6 +55,17 @@ let g:notes_smart_quotes = 0
 " syntax highlight enabled
 syntax enable
 
+" remove ugly colors from vim
+highlight DiffAdd       cterm=none ctermfg=White ctermbg=Black
+highlight DiffDelete    cterm=none ctermfg=Red ctermbg=Black
+highlight DiffChange    cterm=none ctermfg=none ctermbg=Black
+highlight DiffText      cterm=none ctermfg=Red ctermbg=none
+
+" remove ugly gray color from vim
+highlight VertSplit     cterm=none ctermfg=none ctermbg=none
+highlight FoldColumn    cterm=none ctermfg=none ctermbg=none
+highlight Folded        cterm=none ctermfg=none ctermbg=none
+
 " vim-gitgutter
 highlight clear SignColumn          "Fix for gitgutter
 let g:gitgutter_realtime = 1        "Faster update
@@ -101,7 +112,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-set laststatus=2
+" no statuse bar
+set laststatus=0
 
 "
 " Functions
