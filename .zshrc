@@ -18,6 +18,9 @@ promptinit
 # only load user profile for ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
+# disable C+z
+set +m
+
 #
 # Default editors
 #
@@ -38,6 +41,6 @@ alias grep='grep --color'
 export ZSH=/home/jack/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-plugins=(git systemd cp common-aliases)
+plugins=(git systemd cp sudo vagrant common-aliases)
 ZSH_THEME="gentoo"
 source $ZSH/oh-my-zsh.sh
