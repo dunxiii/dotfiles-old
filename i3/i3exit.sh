@@ -15,7 +15,12 @@ case "$1" in
         ;;
     suspend)
         lock
-        systemctl suspend
+        #systemctl suspend
+
+        # Bugfix for zenbook laptop
+        # Needs systemd .pth and .service file which allows -
+        # user to write to system file
+        echo mem > /sys/power/state
         ;;
     reboot)
         systemctl reboot
