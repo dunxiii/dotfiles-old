@@ -2,19 +2,21 @@
 [keybindings]
 [profiles]
   [[default]]
+    background_darkness = 0.82
+    background_image = None
+  [[base16]]
     foreground_color = "#a6a28c"
     palette = "#20201d:#d73737:#60ac39:#ae9513:#6684e1:#b854d4:#1fad83:#a6a28c:#7d7a68:#d73737:#60ac39:#ae9513:#6684e1:#b854d4:#1fad83:#fefbec"
-    copy_on_selection = True
+    font = Liberation Mono 10
     background_image = None
     background_darkness = 0.8
     scrollback_lines = 1000
-    background_type = transparent
     use_system_font = False
     cursor_color = "#a6a28c"
     cursor_blink = False
     scrollbar_position = hidden
     show_titlebar = False
-    font = Liberation Mono 10
+    copy_on_selection = True
     background_color = "#20201d"
     allow_bold = False
 [layouts]
@@ -22,6 +24,7 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = base16
     [[[window0]]]
       type = Window
       parent = ""
