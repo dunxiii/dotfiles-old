@@ -83,13 +83,15 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Laptop keybinds
-bindsym $mod+F3     exec --no-startup-id zenbook-lights -k -d
-bindsym $mod+F4     exec --no-startup-id zenbook-lights -k -u
-bindsym $mod+F5     exec --no-startup-id zenbook-lights -s -d
-bindsym $mod+F6     exec --no-startup-id zenbook-lights -s -u
-bindsym $mod+F10    exec --no-startup-id pactl set-sink-mute 1 toggle
-bindsym $mod+F11    exec --no-startup-id pactl -- set-sink-volume 1 -5%
-bindsym $mod+F12    exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym $mod+F3         exec --no-startup-id zenbook-lights -k -d
+bindsym $mod+F4         exec --no-startup-id zenbook-lights -k -u
+bindsym $mod+F5         exec --no-startup-id zenbook-lights -s -d
+bindsym $mod+F6         exec --no-startup-id zenbook-lights -s -u
+bindsym $mod+F8         exec --no-startup-id arandr
+bindsym $mod+F10        exec --no-startup-id zenbook-audio -m
+bindsym $mod+Shift+F10  exec --no-startup-id zenbook-audio -tf
+bindsym $mod+F11        exec --no-startup-id zenbook-audio -v -
+bindsym $mod+F12        exec --no-startup-id zenbook-audio -v +
 
 #
 # Workspace
@@ -128,7 +130,7 @@ bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
 # Put some autostarted applications in specific workspaces
-for_window [class="Chromium"] move workspace number $tag8
+for_window [class="chromium-browser"] move workspace number $tag8
 for_window [class="VirtualBox"] move workspace number $tag9
 #for_window [instance="systemd-logg"] move workspace number $tag10
 
@@ -161,7 +163,7 @@ for_window [class="Keepassx"] move scratchpad, scratchpad show
 #
 # Windows to NOT tile
 #
-for_window [class="Pavucontrol"] floating enable
+#for_window [class="Pavucontrol"] floating enable
 
 #
 # Borders
