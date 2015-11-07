@@ -7,7 +7,7 @@ xmodmap -e "keysym Caps_Lock = Control_L"
 xmodmap -e "add Control = Control_L"
 
 # Startup applications
-exec feh --bg-scale ~/Pictures//wallpaper.png &
+exec feh --bg-scale ~/Pictures/wallpaper.png &
 exec insync start &
 exec nm-applet &
 exec devmon &
