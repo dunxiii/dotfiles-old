@@ -140,7 +140,7 @@ for_window [class="VirtualBox"] move workspace number $tag9
 bar {
 	position top
     workspace_buttons yes
-    status_command python3 ~/.i3/i3status.py
+    status_command python3.5 ~/.i3/i3status.py
 
     colors {
         background  #222222
@@ -192,21 +192,21 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-# Power menu
-bindsym XF86PowerOff mode "$mode_system"
-
-set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
-
-mode "$mode_system" {
-	bindsym l exec --no-startup-id i3exit.sh lock, mode "default"
-	bindsym o exec --no-startup-id i3exit.sh logout, mode "default"
-	bindsym s exec --no-startup-id i3exit.sh suspend, mode "default"
-	bindsym r exec --no-startup-id i3exit.sh reboot, mode "default"
-	bindsym p exec --no-startup-id i3exit.sh poweroff, mode "default"
-
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
+## Power menu
+#bindsym XF86PowerOff mode "$mode_system"
+#
+#set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
+#
+#mode "$mode_system" {
+#	bindsym l exec --no-startup-id i3exit.sh lock, mode "default"
+#	bindsym o exec --no-startup-id i3exit.sh logout, mode "default"
+#	bindsym s exec --no-startup-id i3exit.sh suspend, mode "default"
+#	bindsym r exec --no-startup-id i3exit.sh reboot, mode "default"
+#	bindsym p exec --no-startup-id i3exit.sh poweroff, mode "default"
+#
+#	bindsym Return mode "default"
+#	bindsym Escape mode "default"
+#}
 
 # Kill focused window menu
 bindsym $mod+Shift+q mode "$mode_kill_window"

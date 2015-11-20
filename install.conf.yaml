@@ -4,9 +4,9 @@
     ~/.zshrc:
         force: true
         path: .zshrc
-    ~/.zlogin:
-        force: true
-        path: .zlogin
+#    ~/.zlogin:
+#        force: true
+#        path: .zlogin
     ~/.vimrc:
         force: true
         path: .vimrc
@@ -24,10 +24,10 @@
     ~/.i3/i3status.py:
         force: true
         path: i3/i3status.py
-    ~/.config/ranger/rc.conf:
-        create: true
-        force: true
-        path: ranger/rc.conf
+#    ~/.config/ranger/rc.conf:
+#        create: true
+#        force: true
+#        path: ranger/rc.conf
     ~/.xinitrc:
         force: true
         path: .xinitrc
@@ -35,13 +35,13 @@
         create: true
         force: true
         path: zathurarc
-    ~/bin/i3exit.sh:
-        create: true
-        path: i3/i3exit.sh
-    ~/.config/terminator/config:
-        create: true
-        force: true
-        path: terminator/config
+#    ~/bin/i3exit.sh:
+#        create: true
+#        path: i3/i3exit.sh
+#    ~/.config/terminator/config:
+#        create: true
+#        force: true
+#        path: terminator/config
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
