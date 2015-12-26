@@ -28,8 +28,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'unblevable/quick-scope'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-notes'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
