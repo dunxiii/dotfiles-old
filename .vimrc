@@ -1,71 +1,22 @@
-set nocompatible        " be iMproved, required
-filetype off            " Required by Vundle
-
-"
+"-----------------------------------------------------------------------------"
 " Plugins
-"
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"-----------------------------------------------------------------------------"
+call plug#begin('~/.vim/plugged')
 
-"Plugin 'ConradIrwin/vim-bracketed-paste'
-"Plugin 'benmills/vimux'
-"Plugin 'ervandew/supertab'
-"Plugin 'flazz/vim-colorschemes'
-"Plugin 'klen/python-mode'
-"Plugin 'python_editing'
-"Plugin 'ryanoasis/vim-webdevicons'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'tpope/vim-surround'
-"Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
-"Plugin 'bling/vim-airline'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'unblevable/quick-scope'
-"Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-notes'
+"Plug 'ConradIrwin/vim-bracketed-paste'
+"Plug 'scrooloose/nerdtree'
+"Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-fugitive'
+Plug 'unblevable/quick-scope'
 
-call vundle#end()           " required
-filetype plugin indent on   " required
-
-"
+call plug#end()
+"-----------------------------------------------------------------------------"
 " Plugin settings
-"
-
-" vim-notes
-let g:notes_directories = ['~/insync/tech/nix/note']
-let g:notes_suffix = '.txt'
-let g:notes_word_boundaries = 0
-let g:notes_tab_indents = 0         "Removes tab indentation on list items
-let g:notes_smart_quotes = 0
-
-" vim-airline
-"let g:airline_powerline_fonts = 1   "Populate airline symbos properly
-"let g:airline_right_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_left_alt_sep= ''
-"let g:airline_left_sep = ''
-
-" syntax highlight enabled
-syntax enable
-
-" remove ugly colors from vim
-highlight DiffAdd       cterm=none ctermfg=White ctermbg=Black
-highlight DiffDelete    cterm=none ctermfg=Red ctermbg=Black
-highlight DiffChange    cterm=none ctermfg=none ctermbg=Black
-highlight DiffText      cterm=none ctermfg=Red ctermbg=none
-
-" remove ugly gray color from vim
-highlight VertSplit     cterm=none ctermfg=none ctermbg=none
-highlight FoldColumn    cterm=none ctermfg=none ctermbg=none
-highlight Folded        cterm=none ctermfg=none ctermbg=none
-
+"-----------------------------------------------------------------------------"
 " vim-gitgutter
 highlight clear SignColumn          "Fix for gitgutter
 let g:gitgutter_realtime = 1        "Faster update
@@ -85,20 +36,35 @@ let g:gitgutter_eager = 1
 
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
-
-"
+"-----------------------------------------------------------------------------"
 " Vim settings
-"
+"-----------------------------------------------------------------------------"
+" remove ugly colors from vim
+highlight DiffAdd       cterm=none ctermfg=White ctermbg=Black
+highlight DiffDelete    cterm=none ctermfg=Red ctermbg=Black
+highlight DiffChange    cterm=none ctermfg=none ctermbg=Black
+highlight DiffText      cterm=none ctermfg=Red ctermbg=none
+
+" remove ugly gray color from vim
+highlight VertSplit     cterm=none ctermfg=none ctermbg=none
+highlight FoldColumn    cterm=none ctermfg=none ctermbg=none
+highlight Folded        cterm=none ctermfg=none ctermbg=none
+
+" syntax highlight enabled
+syntax enable
+
+"set nocompatible        " be iMproved, required
+"filetype off            " Required by Vundle
+
 let mapleader=" "
 "set dictionary+=/usr/share/dict/words  " path to dictionary
 set encoding=utf-8 "fileencodings=       " use utf8 by default
 set showmode				" show current mode down the bottom
-"set cursorline              " show current line of cursor
-"set cursorcolumn            " show current cloumn of cursor
 set number                  " show row numbers
 set nowrap				    " dont wrap lines
 
-" Searching
+set colorcolumn=80          " show line at 80'th char
+
 " fix broken regex search
 nnoremap / /\v
 vnoremap / /\v
@@ -114,10 +80,9 @@ set expandtab
 
 " no statuse bar
 set laststatus=0
-
-"
+"-----------------------------------------------------------------------------"
 " Functions
-"
+"-----------------------------------------------------------------------------"
 function! NumberToggle()
     if(&relativenumber)
         " Set absolute numbering
@@ -127,16 +92,13 @@ function! NumberToggle()
         set nonu rnu
     endif
 endfunc
-
-
+"-----------------------------------------------------------------------------"
+" Personal Keybinds
+"-----------------------------------------------------------------------------"
 " disable Ex mode
 nnoremap Q <nop>
 " disable weird meny
 nnoremap q: <nop>
-
-"
-" Personal Keybinds
-"
 
 " Remove cursor movement after exiting insert mode
 "inoremap <silent> <Esc> <Esc>`^
@@ -167,10 +129,6 @@ vmap <leader>s :sort<CR>
 " Better indentation
 vmap < <gv
 vmap > >gv
-
-" Better increment/decrementing
-vmap <C-a> <C-a>gv
-vmap <C-x> <C-x>gv
 
 " Save file as root
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
