@@ -10,10 +10,6 @@
     ~/.vimrc:
         force: true
         path: .vimrc
-    ~/.vim/bundle/Vundle.vim:
-        create: true
-        force: true
-        path: Vundle.vim/
     ~/.gitconfig:
         force: true
         path: .gitconfig
