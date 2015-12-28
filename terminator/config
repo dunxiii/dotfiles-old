@@ -4,6 +4,10 @@
   [[default]]
     background_darkness = 0.82
     background_image = None
+    scrollbar_position = hidden
+    scroll_background = False
+    show_titlebar = False
+    cursor_blink = False
   [[base16]]
     foreground_color = "#a6a28c"
     palette = "#20201d:#d73737:#60ac39:#ae9513:#6684e1:#b854d4:#1fad83:#a6a28c:#7d7a68:#d73737:#60ac39:#ae9513:#6684e1:#b854d4:#1fad83:#fefbec"
@@ -24,7 +28,7 @@
     [[[child1]]]
       type = Terminal
       parent = window0
-      profile = base16
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""
