@@ -47,7 +47,7 @@ status.register("network",
         format_down="")
 
 status.register("network",
-        interface="wlan0",
+        interface="wlp2s0",
         format_up=" {essid} {quality:03.0f}% ",
         interval=5)
 
