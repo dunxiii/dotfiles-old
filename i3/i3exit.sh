@@ -15,21 +15,24 @@ case "$1" in
         ;;
     suspend)
         lock
-        #systemctl suspend
+        systemctl suspend
 
-        # Bugfix for zenbook laptop
+        # Workaround for zenbook suspend freeze
         # Needs systemd .pth and .service file which allows -
         # user to write to system file
-        echo mem > /sys/power/state
+        #echo mem > /sys/power/state
         ;;
     reboot)
         systemctl reboot
+        ;;
+    UEFI)
+        systemctl reboot --firmware-setup
         ;;
     poweroff)
         systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 {lock|logout|suspend|reboot|poweroff}"
+        echo "Usage: $0 {lock|logout|suspend|reboot|UEFI|poweroff}"
         exit 2
 esac
 
