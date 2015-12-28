@@ -4,32 +4,48 @@
 
 #The first part of the WM_CLASS is the instance, the second part is the class.
 
-#
-# Settings
-#
+#-----------------------------------------------------------------------------#
+#                                   Autostart
+#-----------------------------------------------------------------------------#
+# Disable Caps Lock and make it left Ctrl instead
+exec --no-startup-id xmodmap -e "remove Lock = Caps_Lock" &
+exec --no-startup-id xmodmap -e "keysym Caps_Lock = Control_L" &
+exec --no-startup-id xmodmap -e "add Control = Control_L" &
+
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png &
+exec --no-startup-id syndaemon -dtki 2 & 
+exec --no-startup-id redshift-gtk -l 55.586:13.054 &
+
+#-----------------------------------------------------------------------------#
+#                               Global Settings
+#-----------------------------------------------------------------------------#
 set $mod Mod4
 set $term terminator
 force_display_urgency_hint 1000 ms
 focus_follows_mouse no
 
-# floating_modifier $mod
+floating_modifier $mod
 
 client.focused          #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused        #333333 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
-# Bitstream comes from chromium packet
 font pango: DejaVu Sans Mono:style=Book, FontAwesome 9
 
-#
-# Keybinds
-#
+#-----------------------------------------------------------------------------#
+#                                   Keybinds
+#-----------------------------------------------------------------------------#
 bindsym $mod+Return     exec --no-startup-id $term
-bindsym $mod+BackSpace  exec --no-startup-id $term -e /bin/zsh -c "ranger ~" # URxvt
-bindsym $mod+d          exec --no-startup-id dmenu_run
-bindsym Print           exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
-bindsym $mod+u          exec --no-startup-id devmon --unmount-removable
+bindsym $mod+BackSpace  exec --no-startup-id $term -e /bin/zsh -c "ranger ~"
+#bindsym $mod+d          exec --no-startup-id dmenu_run
+bindsym $mod+d          exec --no-startup-id xfce4-appfinder
+bindsym $mod+Escape     bar mode toggle
+bindsym Print           exec --no-startup-id xfce4-screenshooter -f
+bindsym Mod1+Print      exec --no-startup-id xfce4-screenshooter -w
+bindsym $mod+Pause      exec --no-startup-id xflock4
+bindsym XF86Display     exec --no-startup-id xfce4-display-settings
+bindsym $mod+Shift+q    kill
 
 # change focus
 bindsym $mod+h focus left
@@ -93,19 +109,21 @@ bindsym $mod+Shift+F10  exec --no-startup-id zenbook-audio -tf
 bindsym $mod+F11        exec --no-startup-id zenbook-audio -v -
 bindsym $mod+F12        exec --no-startup-id zenbook-audio -v +
 
-#
-# Workspace
-#
-set $tag1 1
+#-----------------------------------------------------------------------------#
+#                                   Workspace
+#-----------------------------------------------------------------------------#
+set $tag1 "1:web"
 set $tag2 2
 set $tag3 3
 set $tag4 4
 set $tag5 5
 set $tag6 6
 set $tag7 7
-set $tag8 "8:www"
+set $tag8 8
 set $tag9 "9:virt"
-set $tag10 10
+set $tag10 "10:sys"
+set $tagM "media"
+set $tagT "thunar"
 
 bindsym $mod+1 workspace $tag1
 bindsym $mod+2 workspace $tag2
@@ -117,6 +135,8 @@ bindsym $mod+7 workspace $tag7
 bindsym $mod+8 workspace $tag8
 bindsym $mod+9 workspace $tag9
 bindsym $mod+0 workspace $tag10
+bindsym $mod+m workspace $tagM
+bindsym $mod+t workspace $tagT
 
 bindsym $mod+Shift+1 move container to workspace $tag1
 bindsym $mod+Shift+2 move container to workspace $tag2
@@ -128,15 +148,18 @@ bindsym $mod+Shift+7 move container to workspace $tag7
 bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
+bindsym $mod+Shift+m move container to workspace $tagM
+bindsym $mod+Shift+t move container to workspace $tagT
 
 # Put some autostarted applications in specific workspaces
-for_window [class="chromium-browser"] move workspace number $tag8
-for_window [class="VirtualBox"] move workspace number $tag9
-#for_window [instance="systemd-logg"] move workspace number $tag10
+for_window [instance="Chromium-browser"]    move workspace number $tag1
+for_window [instance="update-manager"]      move workspace number $tag10
+for_window [instance="VirtualBox"]          move workspace number $tag9
+for_window [instance="virt-manager"]        move workspace number $tag9
 
-#
-# statusbar
-#
+#-----------------------------------------------------------------------------#
+#                                   Statusbar
+#-----------------------------------------------------------------------------#
 bar {
 	position top
     workspace_buttons yes
@@ -153,28 +176,26 @@ bar {
     }
 }
 
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+#-----------------------------------------------------------------------------#
+#                               Windows to NOT tile
+#-----------------------------------------------------------------------------#
+for_window [instance="xfce4-appfinder"] floating enable
+for_window [instance="i3exit"] floating enable
 
-#for_window [class="Gnome-terminal" class="vimNotes"] move scratchpad, scratchpad show
-for_window [instance="vimNotes"] move scratchpad, scratchpad show
-for_window [class="Keepassx"] move scratchpad, scratchpad show
+#-----------------------------------------------------------------------------#
+#                               Windows to tile
+#-----------------------------------------------------------------------------#
+for_window [instance="update-manager"] floating disable, border none
 
-#
-# Windows to NOT tile
-#
-#for_window [class="Pavucontrol"] floating enable
-
-#
-# Borders
-#
+#-----------------------------------------------------------------------------#
+#                                   Borders
+#-----------------------------------------------------------------------------#
 new_window  none
 new_float   1pixel
 
-
-#
-# Modes
-#
+#-----------------------------------------------------------------------------#
+#                                   Modes
+#-----------------------------------------------------------------------------#
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -190,32 +211,4 @@ mode "resize" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
-}
-
-## Power menu
-#bindsym XF86PowerOff mode "$mode_system"
-#
-#set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
-#
-#mode "$mode_system" {
-#	bindsym l exec --no-startup-id i3exit.sh lock, mode "default"
-#	bindsym o exec --no-startup-id i3exit.sh logout, mode "default"
-#	bindsym s exec --no-startup-id i3exit.sh suspend, mode "default"
-#	bindsym r exec --no-startup-id i3exit.sh reboot, mode "default"
-#	bindsym p exec --no-startup-id i3exit.sh poweroff, mode "default"
-#
-#	bindsym Return mode "default"
-#	bindsym Escape mode "default"
-#}
-
-# Kill focused window menu
-bindsym $mod+Shift+q mode "$mode_kill_window"
-
-set $mode_kill_window Kill window: (y) yes, (n) no
-
-mode "$mode_kill_window" {
-    bindsym y kill; mode "default"
-
-    bindsym n mode "default"
-	bindsym Escape mode "default"
 }
