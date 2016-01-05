@@ -39,6 +39,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
 "-----------------------------------------------------------------------------"
 " Vim settings
 "-----------------------------------------------------------------------------"
+" open .md files as markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " remove ugly colors from vim
 highlight DiffAdd       cterm=none ctermfg=White ctermbg=Black
 highlight DiffDelete    cterm=none ctermfg=Red ctermbg=Black
