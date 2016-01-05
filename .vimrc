@@ -56,9 +56,6 @@ highlight Folded        cterm=none ctermfg=none ctermbg=none
 " syntax highlight enabled
 syntax enable
 
-"set nocompatible        " be iMproved, required
-"filetype off            " Required by Vundle
-
 let mapleader=" "
 "set dictionary+=/usr/share/dict/words  " path to dictionary
 set encoding=utf-8 "fileencodings=       " use utf8 by default
