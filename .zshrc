@@ -18,9 +18,6 @@ promptinit
 # only load user profile for ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-# disable C+z
-set +m
-
 #
 # Default editors
 #
