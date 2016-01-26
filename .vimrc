@@ -12,6 +12,7 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 "-----------------------------------------------------------------------------"
@@ -21,6 +22,11 @@ call plug#end()
 highlight clear SignColumn          "Fix for gitgutter
 let g:gitgutter_realtime = 1        "Faster update
 let g:gitgutter_eager = 1
+
+" papercolor-theme
+set t_Co=256
+set background=dark
+colorscheme PaperColor
 
 " syntastic
 "set statusline+=%#warningmsg#

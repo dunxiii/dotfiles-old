@@ -1,34 +1,45 @@
 [global_config]
+  geometry_hinting = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  borderless = True
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.82
     background_image = None
+    background_darkness = 0.82
+    urgent_bell = True
     scrollbar_position = hidden
     scroll_background = False
     show_titlebar = False
+    font = Nimbus Mono L 11
     cursor_blink = False
-  [[base16]]
-    foreground_color = "#a6a28c"
-    palette = "#20201d:#d73737:#60ac39:#ae9513:#6684e1:#b854d4:#1fad83:#a6a28c:#7d7a68:#d73737:#60ac39:#ae9513:#6684e1:#b854d4:#1fad83:#fefbec"
-    font = Liberation Mono 10
-    background_image = None
-    background_darkness = 0.8
-    scrollback_lines = 1000
-    use_system_font = False
-    cursor_color = "#a6a28c"
-    cursor_blink = False
+  [[material-dark]]
     scrollbar_position = hidden
+    palette = "#2c2c2c:#c62828:#558b2e:#f9a825:#1565c1:#6a1e9a:#00838f:#ffffff:#969694:#f15250:#86bd47:#f8e63a:#77b2f6:#b963c8:#25c3dc:#ffffff"
+    urgent_bell = True
+    background_image = None
+    cursor_color = "#25C3DC"
+    foreground_color = "#f2f2f2"
     show_titlebar = False
-    copy_on_selection = True
-    background_color = "#20201d"
-    allow_bold = False
+    font = Monospace 10
+    background_color = "#1c1c1c"
+    cursor_blink = False
+  [[material-light]]
+    scrollbar_position = hidden
+    palette = "#f8f8f8:#d7005f:#718c00:#ff8f01:#005f87:#6a1e9a:#3e999f:#2c2c2c:#2c2c2c:#ef5251:#90c94d:#ffa000:#4271ae:#c774c1:#3e999f:#f5f5f5"
+    urgent_bell = True
+    background_image = None
+    cursor_color = "#25C3DC"
+    foreground_color = "#3c3c3b"
+    show_titlebar = False
+    background_color = "#eeeeee"
+    cursor_blink = False
 [layouts]
   [[default]]
     [[[child1]]]
       type = Terminal
       parent = window0
-      profile = default
+      profile = material-dark
     [[[window0]]]
       type = Window
       parent = ""
