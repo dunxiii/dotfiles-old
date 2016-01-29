@@ -4,15 +4,16 @@
 call plug#begin('~/.vim/plugged')
 
 "Plug 'ConradIrwin/vim-bracketed-paste'
-"Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-surround'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 "-----------------------------------------------------------------------------"
