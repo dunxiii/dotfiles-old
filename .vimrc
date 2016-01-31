@@ -121,10 +121,14 @@ nmap <C-l> <C-w>l
 " Clear search results
 nmap <LEADER>/ :nohl<CR>
 
-" fugutive shortcuts
-nmap <LEADER>w :Gw<CR>
-nmap <LEADER>c :Gcommit<CR>
-nmap <LEADER>d :Gdiff<CR>
+" fugitive/git shortcuts
+nmap <LEADER>gw :Gw<CR>
+nmap <LEADER>gc :Gcommit<CR>
+nmap <LEADER>gd :Gdiff<CR>
+nmap <LEADER>gs :Gstatus<CR>
+nmap <LEADER>du :diffupdate<CR>
+map <LEADER>dp :diffput<CR>
+map <LEADER>dg :diffput<CR>
 
 " Sidepanel numbers
 nmap <LEADER>§ :set nonumber norelativenumber<CR>
