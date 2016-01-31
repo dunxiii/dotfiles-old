@@ -70,7 +70,7 @@ set showmode				" show current mode down the bottom
 set number                  " show row numbers
 set nowrap				    " dont wrap lines
 
-set colorcolumn=80          " show line at 80'th char
+"set colorcolumn=80          " show line at 80'th char
 
 " fix broken regex search
 nnoremap / /\v
