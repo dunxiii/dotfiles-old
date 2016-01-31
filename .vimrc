@@ -41,13 +41,46 @@ colorscheme PaperColor
 "    \ "!level":  "errors",
 "    \ "type":    "style"}
 
+" nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nnoremap <expr><enter> &ft=="qf" ? "<cr>:lcl<cr>" : (getpos(".")[2]==1 ? "i<cr><esc>": "i<cr><esc>l")
+map <C-n> :NERDTreeToggle<CR>
+
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+au VimEnter * call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+au VimEnter * call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+au VimEnter * call NERDTreeHighlightFile('md', 'darkyellow', 'none', '#3366FF', '#151515')
+au VimEnter * call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+au VimEnter * call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+au VimEnter * call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+au VimEnter * call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+au VimEnter * call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+au VimEnter * call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+au VimEnter * call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+au VimEnter * call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+au VimEnter * call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+au VimEnter * call NERDTreeHighlightFile('rb', 'Red', 'none', '#ffa500', '#151515')
+au VimEnter * call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+
+" vim-markdown
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_disabled = 1
+autocmd VimEnter *.md :Toc                          " Open Toc directly
+
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
 "-----------------------------------------------------------------------------"
 " Vim settings
 "-----------------------------------------------------------------------------"
 " open .md files as markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufReadPost *.md set filetype=markdown
 
 " remove ugly colors from vim
 highlight DiffAdd       cterm=none ctermfg=White ctermbg=Black
