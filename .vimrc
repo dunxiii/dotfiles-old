@@ -100,7 +100,7 @@ let mapleader=" "
 "set dictionary+=/usr/share/dict/words  " path to dictionary
 set encoding=utf-8 "fileencodings=       " use utf8 by default
 set showmode				" show current mode down the bottom
-set number                  " show row numbers
+"set number                  " show row numbers
 set nowrap				    " dont wrap lines
 
 "set colorcolumn=80          " show line at 80'th char
