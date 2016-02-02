@@ -19,6 +19,17 @@ promptinit
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 #
+# Don't open ranger if ranger is running
+#
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        ranger
+    else
+        exit
+    fi
+}
+
+#
 # Default editors
 #
 export EDITOR=/usr/bin/vim
@@ -31,6 +42,7 @@ export SUDO_EDITOR=/usr/bin/vim
 alias ls='ls --color=auto -h'
 alias se='sudoedit'
 alias grep='grep --color'
+alias ranger='rg'
 
 #
 # Oh my zsh
