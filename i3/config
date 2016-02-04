@@ -23,6 +23,7 @@ $run feh --bg-scale ~/Pictures/wallpaper.png &
 $run compton -b --config ~/.compton.conf            # -b = daemon
 $run redshift-gtk -l 55.586:13.054 &
 $run syndaemon -dtki 2 &                            # disable tuchclick then typing
+$run rofi -fullscreen &
 
 #-----------------------------------------------------------------------------#
 #                               Global Settings
