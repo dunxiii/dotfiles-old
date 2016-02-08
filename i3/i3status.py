@@ -51,6 +51,10 @@ status.register("network",
         format_up=" {essid} {quality:03.0f}% ",
         interval=5)
 
+status.register("runwatch",
+        path="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/plexmediaserver.pid",
+        name="Plex")
+
 status.register("disk",
         hints={"color":"#ffffff"},
         path="/",
