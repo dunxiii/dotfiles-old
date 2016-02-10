@@ -23,7 +23,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 #
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
-        ranger
+        /usr/bin/ranger
     else
         exit
     fi
@@ -42,7 +42,6 @@ export SUDO_EDITOR=/usr/bin/vim
 alias ls='ls --color=auto -h'
 alias se='sudoedit'
 alias grep='grep --color'
-alias ranger='rg'
 
 #
 # Oh my zsh
