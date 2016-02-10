@@ -30,6 +30,9 @@
     ~/.xinitrc:
         force: true
         path: .xinitrc
+    ~/.Xresources:
+        force: true
+        path: .Xresources
     ~/.config/zathura/zathurarc:
         create: true
         force: true
