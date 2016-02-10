@@ -1,3 +1,11 @@
+# Settings just for font rendering
+Xft.antialias: 1
+Xft.dpi: 96
+Xft.hinting: 0
+Xft.hintstyle: hintnone
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
 rofi.modi:                           window,run,power:/home/jack/Git/dotfiles/i3/i3exit-rofi.sh
 rofi.opacity:                        100
 rofi.fullscreen:                     true
@@ -81,5 +89,5 @@ rofi.kb-row-first:                   Home,KP_Home
 rofi.kb-row-last:                    End,KP_End
 rofi.kb-row-select:                  Control+space
 rofi.kb-cancel:                      Escape
-rofi.key-window:                     SuperL+Tab
+rofi.key-window:                     ALT+Tab
 rofi.key-run:                        SuperL+d
