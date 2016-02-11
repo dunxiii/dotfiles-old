@@ -17,7 +17,7 @@ $run xmodmap -e "remove Lock = Caps_Lock"
 $run xmodmap -e "keysym Caps_Lock = Control_L"
 $run xmodmap -e "add Control = Control_L"
 
-$run feh --bg-scale ~/Pictures/wallpaper.png &
+$run feh --bg-scale ~/Pictures/wallpaper.* &
 $run insync start &
 $run nm-applet &
 $run compton -b --config ~/.compton.conf            # -b = daemon
