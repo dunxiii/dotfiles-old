@@ -24,6 +24,7 @@ $run compton -b --config ~/.compton.conf            # -b = daemon
 $run redshift-gtk -l 55.586:13.054 &
 $run syndaemon -dtki 2 &                            # disable touchclick then typing
 $run xrdb -merge ~/.Xresources &
+$run parcellite &
 
 #-----------------------------------------------------------------------------#
 #                               Global Settings
