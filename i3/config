@@ -10,14 +10,14 @@
 set $run exec --no-startup-id
 
 # Set keymap for X11
-setxkbmap se
+$run setxkbmap se
 
 # Replace Caps Lock with left Ctrl
 $run xmodmap -e "remove Lock = Caps_Lock"
 $run xmodmap -e "keysym Caps_Lock = Control_L"
 $run xmodmap -e "add Control = Control_L"
 
-$run feh --bg-scale ~/Pictures/wallpaper.* &
+$run feh --bg-scale ~/pictures/wallpaper.* &
 $run insync start &
 $run nm-applet &
 $run compton -b --config ~/.compton.conf            # -b = daemon
@@ -48,7 +48,7 @@ font pango: DejaVu Sans Mono:style=Book, FontAwesome 9
 #-----------------------------------------------------------------------------#
 bindsym $mod+Return     exec --no-startup-id $term
 bindsym $mod+BackSpace  exec --no-startup-id $term -e /bin/zsh -c "ranger ~"
-bindsym $mod+a          exec --no-startup-id /home/jack/Git/dotfiles/i3/i3launcher-rofi.sh
+bindsym $mod+a          exec --no-startup-id /home/jack/git/dotfiles/i3/i3launcher-rofi.sh
 bindsym $mod+d          exec --no-startup-id rofi -show run
 bindsym $mod+Escape     bar mode toggle
 bindsym Print           exec --no-startup-id xfce4-screenshooter -f
