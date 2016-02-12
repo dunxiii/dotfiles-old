@@ -16,6 +16,9 @@
     ~/.compton.conf:
         force: true
         path: .compton.conf
+    ~/.gtkrc-2.0:
+        force: true
+        path: .gtkrc-2.0
     ~/.i3/config:
         create: true
         force: true
@@ -27,6 +30,10 @@
         create: true
         force: true
         path: ranger/rc.conf
+    ~/.config/parcellite/parcelliterc:
+        create: true
+        force: true
+        path: parcelliterc
     ~/.xinitrc:
         force: true
         path: .xinitrc
