@@ -5,7 +5,7 @@ Xft.hintstyle: hintnone
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-rofi.modi:                           window,run,power:/home/jack/Git/dotfiles/i3/i3exit-rofi.sh
+rofi.modi:                           window,run
 rofi.opacity:                        100
 rofi.fullscreen:                     true
 rofi.columns:                        1
