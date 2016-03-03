@@ -10,14 +10,15 @@
 set $run exec --no-startup-id
 
 # Set keymap for X11
-$run setxkbmap se
+#exec setxkbmap se
 
 # Replace Caps Lock with left Ctrl
-$run xmodmap -e "remove Lock = Caps_Lock"
-$run xmodmap -e "keysym Caps_Lock = Control_L"
-$run xmodmap -e "add Control = Control_L"
+#$run sleep 3 && xmodmap -e "remove Lock = Caps_Lock"
+#$run sleep 3 && xmodmap -e "keysym Caps_Lock = Control_L"
+#$run sleep 3 && xmodmap -e "add Control = Control_L"
 
-$run feh --bg-scale ~/pictures/wallpaper.* &
+$run feh --bg-scale ~/Pictures/wallpaper.* &
+$run /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 $run insync start &
 $run nm-applet &
 $run compton -b --config ~/.compton.conf            # -b = daemon
@@ -46,16 +47,21 @@ font pango: DejaVu Sans Mono:style=Book, FontAwesome 9
 #-----------------------------------------------------------------------------#
 #                                   Keybinds
 #-----------------------------------------------------------------------------#
-bindsym $mod+Return     exec --no-startup-id $term
-bindsym $mod+BackSpace  exec --no-startup-id $term -e /bin/zsh -c "ranger ~"
-bindsym $mod+a          exec --no-startup-id /home/jack/git/dotfiles/i3/i3launcher-rofi.sh
-bindsym $mod+d          exec --no-startup-id rofi -show run
-bindsym $mod+Escape     bar mode toggle
-bindsym Print           exec --no-startup-id xfce4-screenshooter -f
-bindsym Mod1+Print      exec --no-startup-id xfce4-screenshooter -w
-bindsym $mod+Pause      exec --no-startup-id xflock4
-bindsym XF86Display     exec --no-startup-id xfce4-display-settings
-bindsym $mod+Shift+q    kill
+bindsym $mod+Return             $run $term
+bindsym $mod+BackSpace          $run $term -e /bin/zsh -c "ranger ~"
+bindsym $mod+a                  $run i3launcher-rofi.sh
+bindsym $mod+Tab                $run rofi -show window -auto-select
+bindsym $mod+d                  $run rofi -show run
+bindsym $mod+Escape             bar mode toggle
+bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
+bindsym XF86KbdBrightnessUp     $run zenbook-lights.sh -ku
+bindsym XF86AudioMute           $run zenbook-audio.sh -m
+bindsym XF86AudioLowerVolume    $run zenbook-audio.sh -v -
+bindsym XF86AudioRaiseVolume    $run zenbook-audio.sh -v +
+bindsym XF86PowerOff            $run i3exit-rofi.sh
+bindsym Print                   $run i3screenshot-rofi.sh
+bindsym XF86Display             $run arandr
+bindsym $mod+Shift+q            kill
 
 # change focus
 bindsym $mod+h focus left
@@ -80,10 +86,10 @@ bindsym $mod+Shift+l move right
 # split direction
 #bindsym $mod+h split h
 #bindsym $mod+v split v
-bindsym $mod+Left split h
-bindsym $mod+Right split h
-bindsym $mod+Up split v
-bindsym $mod+Down split v
+bindsym $mod+Left   split h
+bindsym $mod+Right  split h
+bindsym $mod+Up     split v
+bindsym $mod+Down   split v
 
 # toggle fullscreen
 bindsym $mod+f fullscreen
@@ -181,6 +187,8 @@ for_window [instance="virt-manager"]        move workspace number $tag9
 bar {
 	position top
     workspace_buttons yes
+    # Perfect bar height for zenbook 13" so terminal print rows correct, i3-gaps specific setting
+    height 18
     status_command python3 ~/.i3/i3status.py
 
     colors {
@@ -218,15 +226,15 @@ new_float   1pixel
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink     width  10 px or 10 ppt
+    bindsym j resize grow       height 10 px or 10 ppt
+    bindsym k resize shrink     height 10 px or 10 ppt
+    bindsym l resize grow       width  10 px or 10 ppt
 
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink  width  10 px or 10 ppt
+    bindsym Down resize grow    height 10 px or 10 ppt
+    bindsym Up resize shrink    height 10 px or 10 ppt
+    bindsym Right resize grow   width  10 px or 10 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
