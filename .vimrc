@@ -1,52 +1,86 @@
-"-----------------------------------------------------------------------------"
-" Plugins
-"-----------------------------------------------------------------------------"
+" Plugins {{{
+
 call plug#begin('~/.vim/plugged')
 
 "Plug 'ConradIrwin/vim-bracketed-paste'
 "Plug 'tpope/vim-surround'
+Plug 'mhinz/vim-startify'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+"Plug 'jtratner/vim-flavored-markdown'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
+"Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 call plug#end()
-"-----------------------------------------------------------------------------"
-" Plugin settings
-"-----------------------------------------------------------------------------"
-" vim-gitgutter
-highlight clear SignColumn          "Fix for gitgutter
-let g:gitgutter_realtime = 1        "Faster update
-let g:gitgutter_eager = 1
 
-" papercolor-theme
-set t_Co=256
-set background=dark
-colorscheme PaperColor
+" }}}
+" Plugin settings {{{
 
-" syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_quiet_messages = {
-"    \ "!level":  "errors",
-"    \ "type":    "style"}
+" fugitive {{{
 
-" nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  function! MyFollowSymlink(...)
+    if exists('w:no_resolve_symlink') && w:no_resolve_symlink
+      return
+    endif
+    let fname = a:0 ? a:1 : expand('%')
+    if fname =~ '^\w\+:/'
+      " Do not mess with 'fugitive://' etc.
+      return
+    endif
+    let fname = simplify(fname)
+
+    let resolvedfile = resolve(fname)
+    if resolvedfile == fname
+      return
+    endif
+    let resolvedfile = fnameescape(resolvedfile)
+    let sshm = &shm
+    set shortmess+=A  " silence ATTENTION message about swap file (would get displayed twice)
+    exec 'file ' . resolvedfile
+    let &shm=sshm
+
+    " Re-init fugitive.
+    call fugitive#detect(resolvedfile)
+    if &modifiable
+      " Only display a note when editing a file, especially not for `:help`.
+      redraw  " Redraw now, to avoid hit-enter prompt.
+      echomsg 'Resolved symlink: =>' resolvedfile
+    endif
+  endfunction
+  command! FollowSymlink call MyFollowSymlink()
+  command! ToggleFollowSymlink let w:no_resolve_symlink = !get(w:, 'no_resolve_symlink', 0) | echo "w:no_resolve_symlink =>" w:no_resolve_symlink
+  au BufReadPost * nested call MyFollowSymlink(expand('%'))
+
+" }}}
+" lightline {{{
+
+" Remove default line for insert/replace...
+set noshowmode
+
+" show status bar
+set laststatus=2
+
+" }}}
+" nerdtree {{{
+
+let g:NERDTreeShowBookmarks = 1
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 nnoremap <expr><enter> &ft=="qf" ? "<cr>:lcl<cr>" : (getpos(".")[2]==1 ? "i<cr><esc>": "i<cr><esc>l")
-map <C-n> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
+let g:NERDTreeMapActivateNode='<Tab>'
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -68,17 +102,89 @@ au VimEnter * call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#15151
 au VimEnter * call NERDTreeHighlightFile('rb', 'Red', 'none', '#ffa500', '#151515')
 au VimEnter * call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
+" }}}
+" papercolor-theme {{{
 
-" vim-markdown
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_folding_disabled = 1
-autocmd VimEnter *.md :Toc                          " Open Toc directly
+set t_Co=256
+set background=dark
+colorscheme PaperColor
 
-" quick-scope
+" }}}
+" quick-scope {{{
+
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
-"-----------------------------------------------------------------------------"
-" Vim settings
-"-----------------------------------------------------------------------------"
+
+" }}}
+" startify {{{
+
+let g:startify_list_order = ['files', 'bookmarks']
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+let g:startify_bookmarks = [
+    \ {'v': '~/.vimrc'},
+    \ {'z': '~/.zshrc'},
+    \ {'i': '~/.i3/config'},
+    \ {'t': '/home/jack/Insync/notes/todo.md'},
+    \ ]
+
+highlight StartifyBracket ctermfg=240
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
+" }}}
+" supertab {{{
+
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+
+" }}}
+" syntastic {{{
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_quiet_messages = {
+"    \ "!level":  "errors",
+"    \ "type":    "style"}
+
+" }}}
+" vim-airline {{{
+
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+
+" }}}
+" vim-gitgutter {{{
+
+"Fix for gitgutter
+highlight clear SignColumn
+"Faster update
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+
+" }}}
+" vim-markdown {{{
+
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_new_list_item_indent = 0
+let g:netrw_browsex_viewer = 'firefox'
+set conceallevel=2
+"autocmd VimEnter *.md :Toc                          " Open Toc directly
+
+" }}}
+
+" }}}
+" Vim settings {{{
+
 " open .md files as markdown
 autocmd BufNewFile,BufFilePre,BufReadPost *.md set filetype=markdown
 
@@ -96,14 +202,21 @@ highlight Folded        cterm=none ctermfg=none ctermbg=none
 " syntax highlight enabled
 syntax enable
 
+" disable urget flag
+set noerrorbells visualbell t_vb=
+
 let mapleader=" "
 "set dictionary+=/usr/share/dict/words  " path to dictionary
-set encoding=utf-8 "fileencodings=       " use utf8 by default
-set showmode				" show current mode down the bottom
-"set number                  " show row numbers
+set encoding=utf-8 "fileencodings=      " use utf8 by default
+"set showmode				" show current mode down the bottom
+"set number                 " show row numbers
 set nowrap				    " dont wrap lines
+set modeline                " enable modeline (ability to have vim settings in files)
+set cursorline
+set wildmenu                " visual menu for command completion
+set lazyredraw              " redraw only when we need to.
 
-"set colorcolumn=80          " show line at 80'th char
+"set colorcolumn=80         " show line at 80'th char
 
 " fix broken regex search
 nnoremap / /\v
@@ -118,11 +231,14 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" no statuse bar
-set laststatus=0
-"-----------------------------------------------------------------------------"
-" Functions
-"-----------------------------------------------------------------------------"
+" path for vim tmp files
+set directory=~/.vim//
+
+"set viminfo=100,n~/.viminfo
+
+" }}}
+" Functions {{{
+
 function! NumberToggle()
     if(&relativenumber)
         " Set absolute numbering
@@ -132,18 +248,25 @@ function! NumberToggle()
         set nonu rnu
     endif
 endfunc
-"-----------------------------------------------------------------------------"
-" Personal Keybinds
-"-----------------------------------------------------------------------------"
+
+" }}}
+" Keybinds {{{
+
 " disable Ex mode
 nnoremap Q <nop>
 " disable weird meny
 nnoremap q: <nop>
 
-" Remove cursor movement after exiting insert mode
-"inoremap <silent> <Esc> <Esc>`^
-"autocmd InsertLeave * :normal `^
-"imap <silent> <Esc> <C-O>:stopinsert<CR>
+" allow :Q for qutting
+:command! -bar -bang Q quit<bang>
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
 
 " Move between splits with CTRL+[hjkl]
 nmap <C-h> <C-w>h
@@ -154,14 +277,20 @@ nmap <C-l> <C-w>l
 " Clear search results
 nmap <LEADER>/ :nohl<CR>
 
+" open ag.vim
+nnoremap <leader>a :Ag
+
 " fugitive/git shortcuts
 nmap <LEADER>gw :Gw<CR>
 nmap <LEADER>gc :Gcommit<CR>
 nmap <LEADER>gd :Gdiff<CR>
 nmap <LEADER>gs :Gstatus<CR>
 nmap <LEADER>du :diffupdate<CR>
-map <LEADER>dp :diffput<CR>
-map <LEADER>dg :diffput<CR>
+map  <LEADER>dp :diffput<CR>
+map  <LEADER>dg :diffput<CR>
+
+" markdown table of contents
+nmap <LEADER>toc :Toc<CR>
 
 " Sidepanel numbers
 nmap <LEADER>§ :set nonumber norelativenumber<CR>
@@ -179,3 +308,7 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " Runs current line as command in shell
 nmap <LEADER>e :exec '!'.getline('.')<CR>
+
+" }}}
+
+" vim: set foldmethod=marker:
