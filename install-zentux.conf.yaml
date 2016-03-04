@@ -19,13 +19,10 @@
     ~/.gtkrc-2.0:
         force: true
         path: .gtkrc-2.0
-    ~/.i3/config:
+    ~/.i3:
         create: true
         force: true
-        path: i3/config
-    ~/.i3/i3status.py:
-        force: true
-        path: i3/i3status.py
+        path: i3/zentux
     ~/.config/ranger/rc.conf:
         create: true
         force: true
