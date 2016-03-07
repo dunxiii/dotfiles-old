@@ -1,0 +1,55 @@
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "x": 0,
+       "y": 0
+    },
+    "percent": 0.54,
+    "swallows": [
+       {
+           "class": "^Thunderbird$",
+           "instance": "^Mail$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "x": 0,
+       "y": 0
+    },
+    "percent": 0.32,
+    "swallows": [
+       {
+           "class": "^Pidgin$",
+           "instance": "^Pidgin$",
+           "window_role": "^conversation$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "x": 0,
+       "y": 0
+    },
+    "percent": 0.14,
+    "swallows": [
+       {
+           "class": "^Pidgin$",
+           "instance": "^Pidgin$",
+           "window_role": "^buddy_list$"
+       }
+    ],
+    "type": "con"
+}
