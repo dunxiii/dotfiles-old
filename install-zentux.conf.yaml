@@ -22,7 +22,7 @@
     ~/.i3:
         create: true
         force: true
-        path: i3/zentux
+        path: zentux/i3
     ~/.config/ranger/rc.conf:
         create: true
         force: true
