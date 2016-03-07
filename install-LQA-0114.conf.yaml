@@ -1,0 +1,24 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc:       .zshrc
+    ~/.zlogin:      .zlogin
+    ~/.vimrc:       .vimrc
+    ~/.i3:          LQA-0114/i3
+    ~/.xinitrc:     LQA-0114/.xinitrc
+    ~/.gitconfig:   .gitconfig
+    ~/.gtkrc-2.0:   .gtkrc-2.0
+    ~/.Xresources:  .Xresources
+    ~/.compton.conf: .compton.conf
+    ~/.config/ranger/rc.conf:           ranger/rc.conf
+    ~/.config/parcellite/parcelliterc:  parcelliterc
+    ~/.config/zathura/zathurarc:        zathurarc
+    ~/.config/terminator/config:        terminator/config
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
