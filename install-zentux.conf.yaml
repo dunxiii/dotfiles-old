@@ -1,50 +1,24 @@
-- clean: ['~', '~/.config', '~/.vim/bundle/']
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
 
 - link:
-    ~/.zshrc:
-        force: true
-        path: .zshrc
-    ~/.zlogin:
-        force: true
-        path: .zlogin
-    ~/.vimrc:
-        force: true
-        path: .vimrc
-    ~/.gitconfig:
-        force: true
-        path: .gitconfig
-    ~/.compton.conf:
-        force: true
-        path: .compton.conf
-    ~/.gtkrc-2.0:
-        force: true
-        path: .gtkrc-2.0
-    ~/.i3:
-        create: true
-        force: true
-        path: zentux/i3
-    ~/.config/ranger/rc.conf:
-        create: true
-        force: true
-        path: ranger/rc.conf
-    ~/.config/parcellite/parcelliterc:
-        create: true
-        force: true
-        path: parcelliterc
-    ~/.xinitrc:
-        force: true
-        path: .xinitrc
-    ~/.Xresources:
-        force: true
-        path: .Xresources
-    ~/.config/zathura/zathurarc:
-        create: true
-        force: true
-        path: zathurarc
-    ~/.config/terminator/config:
-        create: true
-        force: true
-        path: terminator/config
+    ~/.zshrc:       .zshrc
+    ~/.zlogin:      .zlogin
+    ~/.vimrc:       .vimrc
+    ~/.i3:          zentux/i3
+    ~/.xinitrc:     .xinitrc
+    ~/.gitconfig:   .gitconfig
+    ~/.gtkrc-2.0:   .gtkrc-2.0
+    ~/.Xresources:  .Xresources
+    ~/.compton.conf: .compton.conf
+    ~/.config/ranger/rc.conf:           ranger/rc.conf
+    ~/.config/parcellite/parcelliterc:  parcelliterc
+    ~/.config/zathura/zathurarc:        zathurarc
+    ~/.config/terminator/config:        terminator/config
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
