@@ -2,6 +2,7 @@
     link:
       create: true
       relink: true
+      force:  true
 
 - clean: ['~']
 
@@ -15,6 +16,7 @@
     ~/.gtkrc-2.0:   .gtkrc-2.0
     ~/.Xresources:  .Xresources
     ~/.compton.conf: .compton.conf
+    ~/.config/profanity:                profanity
     ~/.config/ranger/rc.conf:           ranger/rc.conf
     ~/.config/parcellite/parcelliterc:  parcelliterc
     ~/.config/zathura/zathurarc:        zathurarc
