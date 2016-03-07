@@ -11,16 +11,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-"Plug 'jtratner/vim-flavored-markdown'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
-"Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
-Plug 'PotatoesMaster/i3-vim-syntax'
 
 call plug#end()
 
