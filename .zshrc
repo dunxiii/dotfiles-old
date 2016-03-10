@@ -32,9 +32,9 @@ ranger() {
 #
 # Default editors
 #
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
-export SUDO_EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
+export SUDO_EDITOR=/usr/local/bin/vim
 
 #
 # Aliases

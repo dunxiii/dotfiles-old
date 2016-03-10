@@ -48,7 +48,7 @@ status.register("network",
 
 status.register("network",
         interface="wlp2s0",
-        format_up=" {essid} {quality:03.0f}% ",
+        format_up=" {essid} ",
         interval=5)
 
 status.register("runwatch",

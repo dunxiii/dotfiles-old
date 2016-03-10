@@ -16,6 +16,7 @@
     ~/.Xresources:  .Xresources
     ~/.compton.conf: .compton.conf
     ~/.config/ranger/rc.conf:           ranger/rc.conf
+    ~/.config/ranger/rifle.conf:        ranger/rifle.conf
     ~/.config/parcellite/parcelliterc:  parcelliterc
     ~/.config/zathura/zathurarc:        zathurarc
     ~/.config/terminator/config:        terminator/config

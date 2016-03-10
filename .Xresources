@@ -5,7 +5,7 @@ Xft.hintstyle: hintnone
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-rofi.modi:                           window,run
+rofi.modi:                           run,ssh
 rofi.opacity:                        100
 rofi.fullscreen:                     true
 rofi.columns:                        1
@@ -40,12 +40,11 @@ rofi.run-shell-command:              {terminal} -e {cmd} &
 rofi.disable-history:                false
 rofi.levenshtein-sort:               true
 rofi.case-sensitive:                 false
-rofi.sidebar-mode:                   true
+rofi.sidebar-mode:                   false
 rofi.lazy-filter-limit:              5000
 rofi.eh:                             1
 rofi.auto-select:                    false
 rofi.parse-hosts:                    false
-rofi.combi-modi:                     window,run
 rofi.fuzzy:                          false
 rofi.pid:                            /run/user/1000/rofi.pid
 rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
@@ -88,5 +87,3 @@ rofi.kb-row-first:                   Home,KP_Home
 rofi.kb-row-last:                    End,KP_End
 rofi.kb-row-select:                  Control+space
 rofi.kb-cancel:                      Escape
-rofi.key-window:                     ALT+Tab
-rofi.key-run:                        SuperL+d

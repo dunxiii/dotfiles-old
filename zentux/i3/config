@@ -29,21 +29,13 @@ new_float   1pixel
 # }}}
 # {{{ Autostart
 
-# Set keymap for X11
-#exec setxkbmap se
-
-# Replace Caps Lock with left Ctrl
-exec xmodmap -e "remove Lock = Caps_Lock"
-exec xmodmap -e "keysym Caps_Lock = Control_L"
-exec xmodmap -e "add Control = Control_L"
-
 $run feh --bg-scale ~/Pictures/wallpaper.* &
 $run /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 $run insync start &
-$run nm-applet &
 $run compton -b --config ~/.compton.conf
 $run redshift-gtk -l 55.586:13.054 &
 $run syndaemon -dtki 2 &
+
 $run xrdb -merge ~/.Xresources &
 $run parcellite &
 
@@ -52,8 +44,9 @@ $run parcellite &
 
 bindsym $mod+Return             $run $term
 bindsym $mod+BackSpace          $run $term -e /bin/zsh -c "ranger ~"
-bindsym $mod+a                  $run i3launcher-rofi.sh
-bindsym $mod+Tab                $run rofi -show window -auto-select
+bindsym $mod+section            $run i3-launcher.sh
+#bindsym $mod+Tab                $run
+#bindsym $mod+Tab                $run rofi -show ssh
 bindsym $mod+d                  $run rofi -show run
 bindsym $mod+Escape             bar mode toggle
 bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
@@ -61,8 +54,8 @@ bindsym XF86KbdBrightnessUp     $run zenbook-lights.sh -ku
 bindsym XF86AudioMute           $run zenbook-audio.sh -m
 bindsym XF86AudioLowerVolume    $run zenbook-audio.sh -v -
 bindsym XF86AudioRaiseVolume    $run zenbook-audio.sh -v +
-bindsym XF86PowerOff            $run i3exit-rofi.sh
-bindsym Print                   $run i3screenshot-rofi.sh
+bindsym XF86PowerOff            $run i3-exit.sh
+bindsym Print                   $run i3-screenshot.sh
 bindsym XF86Display             $run arandr
 bindsym $mod+Shift+q            kill
 
