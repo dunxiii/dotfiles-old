@@ -154,7 +154,11 @@ bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
-$run i3-msg "workspace 7; append_layout /home/jack/.i3/workspace-templates/workspace-7.json"
+assign [class="Remmina"] 6
+
+# Resize remmina windows
+for_window [class="Remmina" title="^((?!Remote).)*$"] resize grow width 0 px or 25 ppt
+for_window [class="Remmina" title="Remote"] resize shrink width 0 px or 25 ppt
 
 # }}}
 # {{{ Statusbar
