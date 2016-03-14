@@ -49,17 +49,18 @@ $run thunderbird &
 
 bindsym $mod+Return             $run $term
 bindsym $mod+BackSpace          $run $term -e /bin/zsh -c "ranger ~"
-bindsym $mod+a                  $run i3launcher-rofi.sh
-bindsym $mod+Tab                $run rofi -show window -auto-select
+bindsym $mod+section                  $run i3-launcher.sh
 bindsym $mod+d                  $run rofi -show run
+bindsym $mod+a            $run rofi -show ssh
+#bindsym $mod+Tab                $run
 bindsym $mod+Escape             bar mode toggle
 bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
 bindsym XF86KbdBrightnessUp     $run zenbook-lights.sh -ku
 bindsym XF86AudioMute           $run zenbook-audio.sh -m
 bindsym XF86AudioLowerVolume    $run zenbook-audio.sh -v -
 bindsym XF86AudioRaiseVolume    $run zenbook-audio.sh -v +
-bindsym Control+Mod1+Delete     $run i3exit-rofi.sh
-bindsym Print                   $run i3screenshot-rofi.sh
+bindsym Control+Mod1+Delete     $run i3-exit.sh
+bindsym Print                   $run i3-screenshot.sh
 bindsym XF86Display             $run arandr
 bindsym $mod+Shift+q            kill
 
