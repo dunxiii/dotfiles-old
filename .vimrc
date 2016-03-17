@@ -198,6 +198,10 @@ set expandtab
 " path for vim tmp files
 set directory=~/.vim//
 
+" save undo history
+set undofile
+set undodir=~/.vim/undodir
+
 "set viminfo=100,n~/.viminfo
 
 " }}}
