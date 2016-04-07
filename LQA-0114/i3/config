@@ -40,18 +40,14 @@ $run compton -b --config ~/.compton.conf
 $run syndaemon -dtki 2 &
 $run xrdb -merge ~/.Xresources &
 
-# workspace 7 applications
-$run thunderbird &
-#$run pidgin &
-
 # }}}
 # {{{ Keybinds
 
 bindsym $mod+Return             $run $term
 bindsym $mod+BackSpace          $run $term -e /bin/zsh -c "ranger ~"
-bindsym $mod+section                  $run i3-launcher.sh
+bindsym $mod+section            $run i3-launcher.sh
 bindsym $mod+d                  $run rofi -show run
-bindsym $mod+a            $run rofi -show ssh
+bindsym $mod+a                  $run /home/jack/Git/ssh-manger/ssh-manager.sh
 #bindsym $mod+Tab                $run
 bindsym $mod+Escape             bar mode toggle
 bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
@@ -111,16 +107,16 @@ bindsym $mod+Shift+r restart
 # }}}
 # {{{ Workspace
 
-set $tag1 1
-set $tag2 2
-set $tag3 3
-set $tag4 4
-set $tag5 5
-set $tag6 6
-set $tag7 7
-set $tag8 8
-set $tag9 9
-set $tag10 10
+set $tag1 1:www
+set $tag2 2:sys
+set $tag3 3:work
+set $tag4 4:work
+set $tag5 5:work
+set $tag6 6:work
+set $tag7 7:work
+set $tag8 8:remmina
+set $tag9 9:comm
+set $tag10 10:work
 
 workspace $tag1  output DP1
 workspace $tag2  output DP1
@@ -128,8 +124,8 @@ workspace $tag3  output DP1
 workspace $tag4  output DP1
 workspace $tag5  output DP1
 workspace $tag6  output DP1
-workspace $tag7  output DP2
-workspace $tag8  output DP2
+workspace $tag7  output DP1
+workspace $tag8  output DP1
 workspace $tag9  output DP2
 workspace $tag10 output DP2
 
@@ -155,7 +151,10 @@ bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
-assign [class="Remmina"] 6
+assign [class="Firefox"]            $tag1
+assign [class="Thunderbird"]        $tag9
+assign [window_role="profanity"]    $tag9
+assign [class="Remmina"]            $tag8
 
 # Resize remmina windows
 for_window [class="Remmina" title="^((?!Remote).)*$"] resize grow width 0 px or 25 ppt
