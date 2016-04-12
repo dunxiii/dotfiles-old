@@ -1,5 +1,6 @@
 [connection]
 account=jack.soderblom@deeppurple.lequa.com
+defaccount=jack.soderblom@deeppurple.lequa.com
 
 [ui]
 theme=mytheme
