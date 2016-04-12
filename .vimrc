@@ -18,6 +18,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
 Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -145,6 +146,11 @@ set conceallevel=2
 "autocmd VimEnter *.md :Toc                          " Open Toc directly
 
 " }}}
+" indentLine {{{
+
+let g:indentLine_char='⁞'
+
+" }}}
 
 " }}}
 " Vim settings {{{
@@ -179,6 +185,8 @@ set modeline                " enable modeline (ability to have vim settings in f
 set cursorline
 set wildmenu                " visual menu for command completion
 set lazyredraw              " redraw only when we need to.
+set mouse=a                 " allow mouse interaction
+set clipboard^=unnamedplus       " paste across vim's and other applications, p, ctrl+shift+v
 
 "set colorcolumn=80         " show line at 80'th char
 
