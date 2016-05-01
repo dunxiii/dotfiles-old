@@ -20,7 +20,7 @@ client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused        #333333 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
-font pango: DejaVu Sans Mono:style=Book, FontAwesome 9
+font pango: DejaVu Sans Mono:style=Book 9
 
 # Borders
 new_window  none
@@ -30,14 +30,17 @@ new_float   1pixel
 # {{{ Autostart
 
 $run feh --bg-scale ~/Pictures/wallpaper.* &
-$run /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# Ubuntu
+#$run /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# Arch
+$run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 $run insync start &
 $run compton -b --config ~/.compton.conf
 $run redshift-gtk -l 55.586:13.054 &
-$run syndaemon -dtki 2 &
+$run syndaemon -dtK &
 
 $run xrdb -merge ~/.Xresources &
-$run parcellite &
+$run parcellite --daemon &
 
 # }}}
 # {{{ Keybinds
