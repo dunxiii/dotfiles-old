@@ -1,0 +1,6 @@
+rofi.fullscreen:                     true
+rofi.font:                           DejaVu Sans Mono 12
+rofi.color-window:                   #2c2c2c,#2c2c2c
+rofi.color-normal:                   #2c2c2c,#ffffff,#222222,#4c4c4c,#ffffff
+rofi.color-active:                   #2c2c2c,#268bd2,#222222,#268bd2,#ffffff
+rofi.color-urgent:                   #2c2c2c,#dc322f,#222222,#dc322f,#ffffff

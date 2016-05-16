@@ -32,16 +32,10 @@ ranger() {
 #
 # Default editors
 #
+# This vim is a script that resolvs symlinks
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 export SUDO_EDITOR=/usr/local/bin/vim
-
-#
-# Aliases
-#
-alias ls='ls --color=auto -h'
-alias se='sudoedit'
-alias grep='grep --color'
 
 #
 # Oh my zsh
@@ -49,6 +43,15 @@ alias grep='grep --color'
 export ZSH=/home/jack/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-plugins=(git systemd cp sudo vagrant common-aliases)
+plugins=(colored-man-pages git systemd cp sudo vagrant common-aliases)
 ZSH_THEME="gentoo"
 source $ZSH/oh-my-zsh.sh
+
+#
+# Aliases
+#
+alias ll='ls -lh'
+alias ls='ls --color=auto -h'
+alias se='sudoedit'
+alias grep='grep --color'
+

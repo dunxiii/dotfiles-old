@@ -1,8 +1,8 @@
 - defaults:
     link:
-      create: true
-      relink: true
-      force:  true
+        create: true
+        relink: true
+        force:  true
 
 - clean: ['~']
 
@@ -21,6 +21,7 @@
     ~/.config/parcellite/parcelliterc:  parcelliterc
     ~/.config/zathura/zathurarc:        zathurarc
     ~/.config/terminator/config:        terminator/config
+    ~/.config/rofi/config:              rofi/config
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
