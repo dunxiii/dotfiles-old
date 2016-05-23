@@ -232,7 +232,7 @@ nnoremap Q <nop>
 " disable weird meny
 nnoremap q: <nop>
 
-" allow :Q for qutting
+" :Q for quit
 :command! -bar -bang Q quit<bang>
 
 " move vertically by visual line
