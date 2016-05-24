@@ -29,13 +29,19 @@ ranger() {
     fi
 }
 
+if [ -f /usr/local/vim ];then
+    editor=/usr/local/vim
+else
+    editor=vim
+fi
+
 #
 # Default editors
 #
 # This vim is a script that resolvs symlinks
-export EDITOR=/usr/local/bin/vim
-export VISUAL=/usr/local/bin/vim
-export SUDO_EDITOR=/usr/local/bin/vim
+export EDITOR=${editor}
+export VISUAL=${editor}
+export SUDO_EDITOR=${editor}
 
 #
 # Oh my zsh
@@ -54,4 +60,3 @@ alias ll='ls -lh'
 alias ls='ls --color=auto -h'
 alias se='sudoedit'
 alias grep='grep --color'
-

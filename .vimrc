@@ -4,21 +4,21 @@ call plug#begin('~/.vim/plugged')
 
 "Plug 'ConradIrwin/vim-bracketed-paste'
 "Plug 'tpope/vim-surround'
-Plug 'mhinz/vim-startify'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-startify'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
-Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/indentLine'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -136,14 +136,13 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
 " }}}
-" vim-markdown {{{
+" vimwiki {{{
 
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_folding_style_pythonic = 1
-let g:vim_markdown_new_list_item_indent = 0
-let g:netrw_browsex_viewer = 'firefox'
-set conceallevel=2
-"autocmd VimEnter *.md :Toc                          " Open Toc directly
+let g:vimwiki_hl_headers=1
+let g:vimwiki_list = [{'path': '~/Insync/vimwiki/general', 'auto_export': 1, 'auto_toc': 1},
+                     \{'path': '~/Insync/vimwiki/linux/', 'auto_export': 1, 'auto_toc': 1},
+                     \{'path': '~/Insync/vimwiki/network/', 'auto_export': 1, 'auto_toc': 1}]
+
 
 " }}}
 " indentLine {{{
