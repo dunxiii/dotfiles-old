@@ -83,12 +83,18 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
 " startify {{{
 
 let g:startify_list_order = ['files', 'bookmarks']
+let g:startify_files_number = 5
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [
+    \ {'s': '~/.ssh/config'},
     \ {'v': '~/.vimrc'},
     \ {'z': '~/.zshrc'},
     \ {'i': '~/.i3/config'},
-    \ {'t': '/home/jack/Insync/notes/todo.md'},
+    \ {'wg': '~/Insync/vimwiki/general/index.md'},
+    \ {'wl': '~/Insync/vimwiki/linux/index.md'},
+    \ {'wn': '~/Insync/vimwiki/network/index.md'},
+    \ {'ww': '~/Insync/vimwiki/work/index.md'},
     \ ]
 
 highlight StartifyBracket ctermfg=240
