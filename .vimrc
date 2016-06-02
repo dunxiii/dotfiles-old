@@ -145,10 +145,25 @@ let g:gitgutter_eager = 1
 " vimwiki {{{
 
 let g:vimwiki_hl_headers=1
-let g:vimwiki_list = [{'path': '~/Insync/vimwiki/general', 'auto_export': 1, 'auto_toc': 1},
-                     \{'path': '~/Insync/vimwiki/linux/', 'auto_export': 1, 'auto_toc': 1},
-                     \{'path': '~/Insync/vimwiki/network/', 'auto_export': 1, 'auto_toc': 1}]
 
+let wiki = {}
+let wiki.syntax = 'markdown'
+let wiki.auto_toc = 1
+let wiki.ext ='.md'
+
+let wiki_1 = copy(wiki)
+let wiki_1.path = '~/Insync/vimwiki/general'
+
+let wiki_2 = copy(wiki)
+let wiki_2.path = '~/Insync/vimwiki/linux/'
+
+let wiki_3 = copy(wiki)
+let wiki_3.path = '~/Insync/vimwiki/network/'
+
+let wiki_4 = copy(wiki)
+let wiki_4.path = '~/Insync/vimwiki/work/'
+
+let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
 
 " }}}
 " indentLine {{{
