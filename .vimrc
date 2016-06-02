@@ -303,6 +303,7 @@ vmap > >gv
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap <C-r> :%s/\<<C-r><C-w>\>//gc<left><left><left>
 
 " Runs current line as command in shell
 nmap <LEADER>e :exec '!'.getline('.')<CR>
