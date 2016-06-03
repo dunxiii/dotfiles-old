@@ -83,12 +83,18 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   "Use only on these keys
 " startify {{{
 
 let g:startify_list_order = ['files', 'bookmarks']
+let g:startify_files_number = 5
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [
+    \ {'s': '~/.ssh/config'},
     \ {'v': '~/.vimrc'},
     \ {'z': '~/.zshrc'},
     \ {'i': '~/.i3/config'},
-    \ {'t': '/home/jack/Insync/notes/todo.md'},
+    \ {'wg': '~/Insync/vimwiki/general/index.md'},
+    \ {'wl': '~/Insync/vimwiki/linux/index.md'},
+    \ {'wn': '~/Insync/vimwiki/network/index.md'},
+    \ {'ww': '~/Insync/vimwiki/work/index.md'},
     \ ]
 
 highlight StartifyBracket ctermfg=240
@@ -139,10 +145,25 @@ let g:gitgutter_eager = 1
 " vimwiki {{{
 
 let g:vimwiki_hl_headers=1
-let g:vimwiki_list = [{'path': '~/Insync/vimwiki/general', 'auto_export': 1, 'auto_toc': 1},
-                     \{'path': '~/Insync/vimwiki/linux/', 'auto_export': 1, 'auto_toc': 1},
-                     \{'path': '~/Insync/vimwiki/network/', 'auto_export': 1, 'auto_toc': 1}]
 
+let wiki = {}
+let wiki.syntax = 'markdown'
+let wiki.auto_toc = 1
+let wiki.ext ='.md'
+
+let wiki_1 = copy(wiki)
+let wiki_1.path = '~/Insync/vimwiki/general'
+
+let wiki_2 = copy(wiki)
+let wiki_2.path = '~/Insync/vimwiki/linux/'
+
+let wiki_3 = copy(wiki)
+let wiki_3.path = '~/Insync/vimwiki/network/'
+
+let wiki_4 = copy(wiki)
+let wiki_4.path = '~/Insync/vimwiki/work/'
+
+let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
 
 " }}}
 " indentLine {{{
@@ -281,7 +302,8 @@ vmap > >gv
 " Save file as root
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <LEADER>cw "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap <LEADER>cw :%s/\<<C-r><C-w>\>//gc<left><left><left>
 
 " Runs current line as command in shell
 nmap <LEADER>e :exec '!'.getline('.')<CR>
