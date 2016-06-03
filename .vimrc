@@ -285,9 +285,6 @@ nmap <LEADER>du :diffupdate<CR>
 map  <LEADER>dp :diffput<CR>
 map  <LEADER>dg :diffput<CR>
 
-" markdown table of contents
-nmap <LEADER>toc :Toc<CR>
-
 " Sidepanel numbers
 nmap <LEADER>§ :set nonumber norelativenumber<CR>
 nmap § :call NumberToggle()<CR>
