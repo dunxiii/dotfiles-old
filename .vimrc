@@ -264,6 +264,14 @@ nnoremap k gk
 nnoremap B ^
 nnoremap E $
 
+" Tabs navigation
+map <C-PageUp> :tabp<CR>
+map <C-PageDown> :tabn<CR>
+map <LEADER>tn :tabnew<CR>
+
+cabbrev help tab help
+cabbrev h tab h
+
 " Move between splits with CTRL+[hjkl]
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
