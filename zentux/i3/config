@@ -57,6 +57,7 @@ bindsym XF86AudioLowerVolume    $run zenbook-audio.sh -v -
 bindsym XF86AudioRaiseVolume    $run zenbook-audio.sh -v +
 bindsym XF86PowerOff            $run i3-exit.sh
 bindsym Print                   $run i3-screenshot.sh
+bindsym $mod+Tab                $run i3-switch-workspace.sh
 bindsym XF86Display             $run arandr
 bindsym $mod+Shift+q            kill
 
