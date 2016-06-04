@@ -39,6 +39,7 @@ $run compton -b --config ~/.compton.conf
 $run redshift-gtk -l 55.586:13.054 &
 $run syndaemon -dtK &
 $run parcellite --daemon &
+$run eval $(ssh-agent)
 
 # }}}
 # {{{ Keybinds
