@@ -218,9 +218,9 @@ set smartcase               " if search has case letter search by it
 set incsearch				" find the next match as we type the search
 set hlsearch				" highlight search terms
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=4               " Number of spaces that a <Tab> in the file counts for
+set shiftwidth=4            " Number of spaces to use for each step of (auto)indent
+set softtabstop=4           " Number of spaces that a indent and like vise counts for
 set expandtab
 
 " path for vim tmp files
@@ -284,9 +284,6 @@ nmap <LEADER>gs :Gstatus<CR>
 nmap <LEADER>du :diffupdate<CR>
 map  <LEADER>dp :diffput<CR>
 map  <LEADER>dg :diffput<CR>
-
-" markdown table of contents
-nmap <LEADER>toc :Toc<CR>
 
 " Sidepanel numbers
 nmap <LEADER>§ :set nonumber norelativenumber<CR>
