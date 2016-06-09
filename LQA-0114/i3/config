@@ -151,11 +151,6 @@ bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
-assign [class="Firefox"]            $tag1
-assign [class="Thunderbird"]        $tag9
-assign [window_role="profanity"]    $tag9
-assign [class="Remmina"]            $tag8
-
 # Resize remmina windows
 for_window [class="Remmina" title="^((?!Remote).)*$"] resize grow width 0 px or 25 ppt
 for_window [class="Remmina" title="Remote"] resize shrink width 0 px or 25 ppt
