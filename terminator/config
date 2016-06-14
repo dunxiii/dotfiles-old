@@ -1,4 +1,7 @@
 [global_config]
+[keybindings]
+  next_tab = None
+  prev_tab = None
 [layouts]
   [[default]]
     [[[child1]]]
@@ -9,17 +12,25 @@
       parent = ""
       type = Window
 [profiles]
-  [[default]]
-    background_image = None
   [[material-dark]]
-    scrollbar_position = hidden
-    palette = "#2c2c2c:#c62828:#558b2e:#f9a825:#1565c1:#6a1e9a:#00838f:#ffffff:#969694:#f15250:#86bd47:#f8e63a:#77b2f6:#b963c8:#25c3dc:#ffffff"
+    background_color = "#1c1c1c"
     background_image = None
+    cursor_blink = False
+    cursor_color = "#25C3DC"
+    font = Ubuntu Mono 13
+    foreground_color = "#f2f2f2"
+    palette = "#2c2c2c:#c62828:#558b2e:#f9a825:#1565c1:#6a1e9a:#00838f:#ffffff:#969694:#f15250:#86bd47:#f8e63a:#77b2f6:#b963c8:#25c3dc:#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
     urgent_bell = True
     use_system_font = False
-    cursor_color = "#25C3DC"
-    foreground_color = "#f2f2f2"
-    show_titlebar = False
-    font = Ubuntu Mono 13
-    background_color = "#1c1c1c"
+  [[gruvbox]]
+    background_color = "#212121"
+    background_image = None
     cursor_blink = False
+    cursor_color = "#555555"
+    font = Ubuntu Mono 13
+    foreground_color = "#5a5a5a"
+    palette = "#212121:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2:#212121:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    scrollbar_position = hidden
+    show_titlebar = False
