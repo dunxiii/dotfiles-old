@@ -1,5 +1,4 @@
 [global_config]
-  borderless = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -10,15 +9,17 @@
       parent = ""
       type = Window
 [profiles]
-  [[material-dark]]
-    palette = "#2c2c2c:#c62828:#558b2e:#f9a825:#1565c1:#6a1e9a:#00838f:#ffffff:#969694:#f15250:#86bd47:#f8e63a:#77b2f6:#b963c8:#25c3dc:#ffffff"
-    background_color = "#1c1c1c"
-    cursor_color = "#25C3DC"
-    foreground_color = "#f2f2f2"
+  [[default]]
     background_image = None
-    cursor_blink = False
-    font = Ubuntu Mono 13
+  [[material-dark]]
     scrollbar_position = hidden
-    show_titlebar = False
+    palette = "#2c2c2c:#c62828:#558b2e:#f9a825:#1565c1:#6a1e9a:#00838f:#ffffff:#969694:#f15250:#86bd47:#f8e63a:#77b2f6:#b963c8:#25c3dc:#ffffff"
+    background_image = None
     urgent_bell = True
     use_system_font = False
+    cursor_color = "#25C3DC"
+    foreground_color = "#f2f2f2"
+    show_titlebar = False
+    font = Ubuntu Mono 13
+    background_color = "#1c1c1c"
+    cursor_blink = False
