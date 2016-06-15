@@ -9,7 +9,6 @@
 - link:
     ~/.zshrc:       .zshrc
     ~/.zlogin:      .zlogin
-    ~/.vimrc:       .vimrc
     ~/.i3:          zentux/i3
     ~/.xinitrc:     .xinitrc
     ~/.gitconfig:   .gitconfig
@@ -19,6 +18,7 @@
     #~/.config/ranger/rc.conf:           ranger/rc.conf
     #~/.config/ranger/rifle.conf:        ranger/rifle.conf
     #~/.config/parcellite/parcelliterc:  parcelliterc
+    ~/.config/nvim/init.vim:            vim/init.vim
     ~/.config/zathura/zathurarc:        zathurarc
     ~/.config/terminator/config:        terminator/config
     ~/.config/rofi/config:              rofi/config
