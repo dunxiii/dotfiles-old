@@ -45,10 +45,7 @@ $run eval $(ssh-agent)
 # {{{ Keybinds
 
 bindsym $mod+Return             $run $term
-bindsym $mod+BackSpace          $run $term -x ranger ~
-#bindsym $mod+section            $run i3-launcher.sh
-#bindsym $mod+Tab                $run
-#bindsym $mod+Tab                $run rofi -show ssh
+bindsym $mod+BackSpace          $run $term -x zsh -c "EDITOR=nvim ranger ~"
 bindsym $mod+d                  $run rofi -show run
 bindsym $mod+Escape             bar mode toggle
 bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
