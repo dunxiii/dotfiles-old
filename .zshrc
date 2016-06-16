@@ -32,6 +32,9 @@ ranger() {
 which nvim >/dev/null
 if [[ $? -eq 0 ]]; then
     editor=/usr/bin/nvim
+
+    alias vim='nvim'
+    alias vi='nvim'
 else
     editor=vim
 fi
@@ -61,5 +64,3 @@ alias ll='ls -lh'
 alias ls='ls --color=auto -h'
 alias se='sudoedit'
 alias grep='grep --color'
-alias vim='nvim'
-alias vi='nvim'
