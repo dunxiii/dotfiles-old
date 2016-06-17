@@ -5,7 +5,7 @@ SAVEHIST=10000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/jack/.zshrc'
+zstyle :compinstall filename "/home/jack/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -31,10 +31,7 @@ ranger() {
 
 which nvim >/dev/null
 if [[ $? -eq 0 ]]; then
-    editor=/usr/bin/nvim
-
-    alias vim='nvim'
-    alias vi='nvim'
+    editor=nvim
 else
     editor=vim
 fi
@@ -60,7 +57,9 @@ source $ZSH/oh-my-zsh.sh
 #
 # Aliases
 #
-alias ll='ls -lh'
-alias ls='ls --color=auto -h'
-alias se='sudoedit'
-alias grep='grep --color'
+alias ll="ls -lh"
+alias ls="ls --color=auto -h"
+alias se="sudoedit"
+alias grep="grep --color"
+alias vim="${editor}"
+alias vi="${editor}"
