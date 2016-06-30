@@ -15,7 +15,7 @@
     ~/.gtkrc-2.0:   .gtkrc-2.0
     ~/.Xresources:  .Xresources
     ~/.compton.conf: .compton.conf
-    #~/.config/ranger/rc.conf:           ranger/rc.conf
+    ~/.config/ranger/rc.conf:           ranger/rc.conf
     #~/.config/ranger/rifle.conf:        ranger/rifle.conf
     #~/.config/parcellite/parcelliterc:  parcelliterc
     ~/.config/nvim/init.vim:            vim/init.vim
