@@ -29,10 +29,7 @@ new_float   1pixel
 # }}}
 # {{{ Autostart
 
-$run feh --bg-scale ~/Pictures/wallpaper.* &
-# Ubuntu
-#$run /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-# Arch
+$run DISPLAY=:0 feh --bg-scale ~/Pictures/wallpaper.* &
 $run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 $run insync start &
 $run compton -b --config ~/.compton.conf
@@ -47,15 +44,16 @@ $run eval $(ssh-agent)
 bindsym $mod+Return             $run $term
 bindsym $mod+BackSpace          $run $term -x zsh -c "EDITOR=nvim ranger ~"
 bindsym $mod+d                  $run rofi -show run
+bindsym $mod+a                  $run $term -x zsh -c host-manager.sh
 bindsym $mod+Escape             bar mode toggle
-bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
-bindsym XF86KbdBrightnessUp     $run zenbook-lights.sh -ku
+bindsym XF86KbdBrightnessDown   $run zenbook-light.sh -kd
+bindsym XF86KbdBrightnessUp     $run zenbook-light.sh -ku
 bindsym XF86AudioMute           $run zenbook-audio.sh -m
 bindsym XF86AudioLowerVolume    $run zenbook-audio.sh -v -
 bindsym XF86AudioRaiseVolume    $run zenbook-audio.sh -v +
 bindsym XF86PowerOff            $run i3-exit.sh
 bindsym Print                   $run i3-screenshot.sh
-bindsym $mod+Tab                $run i3-switch-workspace.sh
+bindsym $mod+Tab                $run i3-workspace.sh
 bindsym XF86Display             $run arandr
 bindsym $mod+Shift+q            kill
 
@@ -151,8 +149,6 @@ for_window [instance="virt-manager"]        move workspace number $tag9
 bar {
 	position top
     workspace_buttons yes
-    # Align terminal rows correctly
-    height 18
     status_command python3 ~/.i3/i3status.py
 
     colors {
