@@ -6,6 +6,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename "/home/jack/.zshrc"
+zstyle ':completion:*' rehash true
 
 autoload -Uz compinit
 compinit
@@ -50,7 +51,7 @@ export SUDO_EDITOR=${editor}
 export ZSH=/home/jack/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-plugins=(colored-man-pages git systemd cp sudo vagrant common-aliases)
+plugins=(colored-man-pages git systemd cp sudo vagrant docker common-aliases)
 ZSH_THEME="gentoo"
 source $ZSH/oh-my-zsh.sh
 
