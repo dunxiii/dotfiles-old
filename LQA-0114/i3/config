@@ -43,7 +43,7 @@ bindsym $mod+Return             $run $term
 bindsym $mod+BackSpace          $run $term -e /bin/zsh -c "ranger ~"
 bindsym $mod+section            $run i3-launcher.sh
 bindsym $mod+d                  $run rofi -show run
-bindsym $mod+a                  $run $term -e /bin/zsh -c "/home/jack/Git/ssh-manger/ssh-manager.sh"
+bindsym $mod+a                  $run $term -e /bin/zsh -c host-manager.sh
 #bindsym $mod+Tab                $run
 bindsym $mod+Escape             bar mode toggle
 bindsym XF86KbdBrightnessDown   $run zenbook-lights.sh -kd
