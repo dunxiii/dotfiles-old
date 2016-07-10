@@ -9,15 +9,13 @@
 - link:
     ~/.zshrc:       .zshrc
     ~/.zlogin:      .zlogin
-    ~/.i3:          zentux/i3
+    ~/.i3:          i3
     ~/.xinitrc:     .xinitrc
     ~/.gitconfig:   .gitconfig
     ~/.gtkrc-2.0:   .gtkrc-2.0
     ~/.Xresources:  .Xresources
     ~/.compton.conf: .compton.conf
     ~/.config/ranger/rc.conf:           ranger/rc.conf
-    #~/.config/ranger/rifle.conf:        ranger/rifle.conf
-    #~/.config/parcellite/parcelliterc:  parcelliterc
     ~/.config/nvim/init.vim:            vim/init.vim
     ~/.config/zathura/zathurarc:        zathurarc
     ~/.config/terminator/config:        terminator/config

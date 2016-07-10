@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+cat <<'EOF'
+$RUN DISPLAY=:0 feh --bg-scale ~/Pictures/wallpaper.* &
+$RUN /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+$RUN insync start &
+$RUN compton -b --config ~/.compton.conf
+$RUN redshift-gtk -l 55.586:13.054 &
+$RUN syndaemon -dtK &
+$RUN parcellite --daemon &
+$RUN eval $(ssh-agent)
+EOF

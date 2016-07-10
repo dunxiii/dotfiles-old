@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+cat <<'EOF'
+bindsym Mod4+Return             $RUN $TERM
+bindsym Mod4+BackSpace          $RUN $TERM -x zsh -c "EDITOR=nvim ranger ~"
+bindsym Mod4+d                  $RUN rofi -show run
+bindsym Mod4+a                  $RUN $TERM -x zsh -c host-manager.sh
+bindsym Mod4+Escape             bar mode toggle
+bindsym XF86KbdBrightnessDown   $RUN zenbook-light.sh -kd
+bindsym XF86KbdBrightnessUp     $RUN zenbook-light.sh -ku
+bindsym XF86AudioMute           $RUN zenbook-audio.sh -m
+bindsym XF86AudioLowerVolume    $RUN zenbook-audio.sh -v -
+bindsym XF86AudioRaiseVolume    $RUN zenbook-audio.sh -v +
+bindsym XF86PowerOff            $RUN i3-exit.sh
+bindsym Print                   $RUN i3-screenshot.sh
+bindsym Mod4+Tab                $RUN i3-workspace.sh
+bindsym XF86Display             $RUN arandr
+bindsym Mod4+Shift+q            kill
+bindsym Mod1+Tab                workspace back_and_forth
+bindsym Mod4+r                  mode "resize"
+
+# change focus
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+
+# move focused window
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+
+# move workspace
+bindsym Mod4+Left   move workspace to output left
+bindsym Mod4+Down   move workspace to output down
+bindsym Mod4+Up     move workspace to output up
+bindsym Mod4+Right  move workspace to output right
+
+# split direction
+#bindsym Mod4+h split h
+#bindsym Mod4+v split v
+#bindsym Mod4+Left   split h
+#bindsym Mod4+Right  split h
+#bindsym Mod4+Up     split v
+#bindsym Mod4+Down   split v
+
+# toggle fullscreen
+bindsym Mod4+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# toggle border
+bindsym Mod4+b border toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+
+# scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+bindsym Mod4+minus scratchpad show
+
+# restart (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r $RUN ~/.i3/create_config.sh && i3-msg restart
+EOF
+
+for i in {1..10}; do
+    echo -e "bindsym Mod4+${i} workspace ${i}"
+done
+
+for i in {1..10}; do
+    echo -e "bindsym Mod4+Shift+${i} move container to workspace ${i}"
+done
