@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cat <<'EOF'
+EOF
+
+for window in telegram-desktop chromium Remmina; do
+    echo -e "for_window [class=\"${window}\"] border pixel 0"
+done
