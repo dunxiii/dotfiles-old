@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
 
 cat <<'EOF'
-bindsym Mod4+Return             $RUN $TERM
+bindsym Control+Mod1+Delete     $RUN i3-exit.sh
+bindsym Mod1+Tab                workspace back_and_forth
 bindsym Mod4+BackSpace          $RUN $TERM -x zsh -c "EDITOR=nvim ranger ~"
-bindsym Mod4+d                  $RUN rofi -show run
-bindsym Mod4+a                  $RUN $TERM -x zsh -c host-manager.sh
 bindsym Mod4+Escape             bar mode toggle
+bindsym Mod4+Return             $RUN $TERM
+bindsym Mod4+Shift+q            kill
+bindsym Mod4+Tab                $RUN i3-workspace.sh
+bindsym Mod4+a                  $RUN $TERM -x zsh -c host-manager.sh
+bindsym Mod4+d                  $RUN rofi -show run
+bindsym Mod4+r                  mode "resize"
+bindsym Print                   $RUN i3-screenshot.sh
+bindsym XF86AudioLowerVolume    $RUN zenbook-audio.sh -v -
+bindsym XF86AudioMute           $RUN zenbook-audio.sh -m
+bindsym XF86AudioRaiseVolume    $RUN zenbook-audio.sh -v +
+bindsym XF86Display             $RUN i3-monitor.sh
 bindsym XF86KbdBrightnessDown   $RUN zenbook-light.sh -kd
 bindsym XF86KbdBrightnessUp     $RUN zenbook-light.sh -ku
-bindsym XF86AudioMute           $RUN zenbook-audio.sh -m
-bindsym XF86AudioLowerVolume    $RUN zenbook-audio.sh -v -
-bindsym XF86AudioRaiseVolume    $RUN zenbook-audio.sh -v +
 bindsym XF86PowerOff            $RUN i3-exit.sh
-bindsym Print                   $RUN i3-screenshot.sh
-bindsym Mod4+Tab                $RUN i3-workspace.sh
-bindsym XF86Display             $RUN i3-monitor.sh
-bindsym Mod4+Shift+q            kill
-bindsym Mod1+Tab                workspace back_and_forth
-bindsym Mod4+r                  mode "resize"
 
 # change focus
 bindsym Mod4+h focus left

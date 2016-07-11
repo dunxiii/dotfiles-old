@@ -8,5 +8,4 @@ $RUN compton -b --config ~/.compton.conf
 $RUN redshift-gtk -l 55.586:13.054 &
 $RUN syndaemon -dtK &
 $RUN parcellite --daemon &
-$RUN eval $(ssh-agent)
 EOF
