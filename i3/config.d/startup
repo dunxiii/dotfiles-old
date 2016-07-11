@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cat <<'EOF'
-$RUN DISPLAY=:0 feh --bg-scale ~/Pictures/wallpaper.* &
+$RUN i3-monitor.sh -c
 $RUN /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 $RUN insync start &
 $RUN compton -b --config ~/.compton.conf
