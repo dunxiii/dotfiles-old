@@ -5,6 +5,7 @@
 cat <<EOF
 bar {
     ${TRAY}
+    separator_symbol " | "
 	position top
     workspace_buttons yes
     status_command python3 ~/.i3/i3status-${HOSTNAME}.py
