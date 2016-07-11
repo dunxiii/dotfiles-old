@@ -3,6 +3,6 @@
 cat <<'EOF'
 EOF
 
-for window in telegram-desktop chromium Remmina; do
+for window in telegram-desktop chromium Remmina GitKraken; do
     echo -e "for_window [class=\"${window}\"] border pixel 0"
 done
