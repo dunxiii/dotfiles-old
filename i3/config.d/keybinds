@@ -14,7 +14,7 @@ bindsym XF86AudioRaiseVolume    $RUN zenbook-audio.sh -v +
 bindsym XF86PowerOff            $RUN i3-exit.sh
 bindsym Print                   $RUN i3-screenshot.sh
 bindsym Mod4+Tab                $RUN i3-workspace.sh
-bindsym XF86Display             $RUN arandr
+bindsym XF86Display             $RUN i3-monitor.sh
 bindsym Mod4+Shift+q            kill
 bindsym Mod1+Tab                workspace back_and_forth
 bindsym Mod4+r                  mode "resize"
