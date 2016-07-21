@@ -79,6 +79,10 @@ status.register("updates",
         format="Updates: {count}",
         interval=1800)
 
+status.register("shell",
+        command="VBoxManage list runningvms | wc --lines",
+        format="VB: {output}")
+
 status.register("disk",
         hints={"color":"#ffffff"},
         path="/",
