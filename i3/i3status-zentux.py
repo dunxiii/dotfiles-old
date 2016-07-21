@@ -68,9 +68,16 @@ status.register("runwatch",
         name="Plex")
 '''
 
+status.register("shell",
+        command="pgrep insync",
+        format="Insync",
+        on_leftclick="insync start",
+        on_rightclick="insync quit")
+
 status.register("updates",
         backends = [pacman.Pacman()],
-        format="Updates: {count}")
+        format="Updates: {count}",
+        interval="1800")
 
 status.register("disk",
         hints={"color":"#ffffff"},
