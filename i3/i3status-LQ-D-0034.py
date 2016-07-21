@@ -44,7 +44,8 @@ status.register("network",
 
 status.register("updates",
         backends = [pacman.Pacman()],
-        format="Updates: {count}")
+        format="Updates: {count}",
+        interval=1800)
 
 status.register("disk",
         hints={"color":"#ffffff"},

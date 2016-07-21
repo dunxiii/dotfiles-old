@@ -77,7 +77,7 @@ status.register("shell",
 status.register("updates",
         backends = [pacman.Pacman()],
         format="Updates: {count}",
-        interval="1800")
+        interval=1800)
 
 status.register("disk",
         hints={"color":"#ffffff"},
