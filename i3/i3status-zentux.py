@@ -69,9 +69,9 @@ status.register("runwatch",
 '''
 
 status.register("shell",
-        command="pgrep insync",
+        command="pgrep insync || $(echo ERROR && exit 1)",
         format="Insync",
-        on_leftclick="insync start",
+        on_leftclick="pgrep insync || insync start",
         on_rightclick="insync quit")
 
 status.register("updates",
