@@ -71,12 +71,10 @@ bindsym Mod4+minus scratchpad show
 
 # restart (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r $RUN ~/.i3/create_config.sh && i3-msg restart
+
 EOF
 
-for i in {1..10}; do
-    echo -e "bindsym Mod4+${i} workspace ${i}"
-done
-
-for i in {1..10}; do
-    echo -e "bindsym Mod4+Shift+${i} move container to workspace ${i}"
+for i in {0..9}; do
+    echo -e "bindsym Mod4+${i} \$RUN i3-workspace.sh ${i}"
+    echo -e "bindsym Mod4+Shift+${i} \$RUN i3-workspace.sh ${i} mv_container"
 done

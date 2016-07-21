@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-[[ "${HOSTNAME}" = "LQ-D-0034" ]] && TRAY="tray_output DP1"
+[[ "${HOSTNAME}" = "LQ-D-0034" ]] && TRAY="    tray_output DP1"
 
 cat <<EOF
 bar {
-    ${TRAY}
+${TRAY}
     separator_symbol " | "
 	position top
     workspace_buttons yes
