@@ -75,6 +75,7 @@ bindsym Mod4+Shift+r $RUN ~/.i3/create_config.sh && i3-msg restart
 EOF
 
 for i in {0..9}; do
-    echo -e "bindsym Mod4+${i} \$RUN i3-workspace.sh ${i}"
-    echo -e "bindsym Mod4+Shift+${i} \$RUN i3-workspace.sh ${i} mv_container"
+    [[ ${i} -eq 0 ]] && x=10 || x=${i}
+    echo -e "bindsym Mod4+${i} \$RUN i3-workspace.sh ${x}"
+    echo -e "bindsym Mod4+Shift+${i} \$RUN i3-workspace.sh ${x} mv_container"
 done
