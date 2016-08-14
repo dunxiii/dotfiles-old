@@ -80,6 +80,10 @@ status.register("updates",
         interval=1800)
 
 status.register("shell",
+        command="docker ps | tail -n -1 | wc --lines",
+        format="DC: {output}")
+
+status.register("shell",
         command="VBoxManage list runningvms | wc --lines",
         format="VB: {output}")
 
