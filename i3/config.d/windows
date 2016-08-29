@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 cat <<'EOF'
+for_window [window_role="VPN"] move workspace VPN
+no_focus [window_role="VPN"]
 EOF
 
 for window in telegram-desktop chromium Remmina GitKraken; do
