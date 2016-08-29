@@ -50,7 +50,7 @@ export SUDO_EDITOR=${editor}
 #
 export ZSH=/home/jack/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/Bin:/usr/local/bin:$PATH
 plugins=(colored-man-pages git systemd cp sudo vagrant docker common-aliases)
 ZSH_THEME="gentoo"
 source $ZSH/oh-my-zsh.sh
