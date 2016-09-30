@@ -83,9 +83,9 @@ status.register("shell",
         command="docker ps | tail -n -1 | grep -v CREATED | wc --lines",
         format="DC: {output}")
 
-status.register("shell",
-        command="VBoxManage list runningvms | wc --lines",
-        format="VB: {output}")
+#status.register("shell",
+#        command="VBoxManage list runningvms | wc --lines",
+#        format="VB: {output}")
 
 status.register("disk",
         hints={"color":"#ffffff"},
