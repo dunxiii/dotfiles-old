@@ -1,5 +1,8 @@
 xrdb ~/.Xresources
 
+# Here for testing purposes
+which VBoxClient-all && VBoxClient-all
+
 setxkbmap se
 
 killall gpg-agent
