@@ -58,6 +58,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Aliases
 #
+alias sudo="sudo "
 alias ll="ls -lh"
 alias ls="ls --color=auto -h"
 alias se="sudoedit"
