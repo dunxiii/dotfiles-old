@@ -3,7 +3,7 @@
 cat <<'EOF'
 bindsym Control+Mod1+Delete     $RUN i3-exit.sh
 bindsym Mod1+Tab                workspace back_and_forth
-bindsym Mod4+BackSpace          $RUN $TERM -x zsh -c "EDITOR=nvim ranger ~"
+bindsym Mod4+BackSpace          $RUN $TERM -x zsh -c "EDITOR=vim ranger ~"
 bindsym Mod4+Escape             bar mode toggle
 bindsym Mod4+Return             $RUN $TERM
 bindsym Mod4+Shift+q            kill

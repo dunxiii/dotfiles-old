@@ -30,20 +30,12 @@ ranger() {
     fi
 }
 
-which nvim >/dev/null
-if [[ $? -eq 0 ]]; then
-    editor=nvim
-else
-    editor=vim
-fi
-
 #
 # Default editors
 #
-# This vim is a script that resolvs symlinks
-export EDITOR=${editor}
-export VISUAL=${editor}
-export SUDO_EDITOR=${editor}
+export EDITOR=vim
+export VISUAL=vim
+export SUDO_EDITOR=vim
 
 #
 # Oh my zsh
@@ -63,5 +55,4 @@ alias ll="ls -lh"
 alias ls="ls --color=auto -h"
 alias se="sudoedit"
 alias grep="grep --color"
-alias vim="${editor}"
-alias vi="${editor}"
+alias vi="vim"
