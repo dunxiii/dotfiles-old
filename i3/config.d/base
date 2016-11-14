@@ -19,4 +19,5 @@ font pango: DejaVu Sans Mono:style=Book 9
 
 new_window  $PIXEL
 new_float   $PIXEL
+hide_edge_borders smart
 EOF
