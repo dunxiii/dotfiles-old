@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
+# use xprop for window properties
+# example: WM_CLASS(STRING) = "irssi", "URxvt"
+# first field is instance, second is class
+
 cat <<'EOF'
 for_window [window_role="VPN"] move workspace VPN
 no_focus [window_role="VPN"]
+
+for_window [instance="Msgcompose"] floating enable
+for_window [instance="Msgcompose"] resize set 800 600
 EOF
 
-for window in telegram-desktop chromium Remmina GitKraken; do
-    echo -e "for_window [class=\"${window}\"] border pixel 0"
-done
+#for window in xxx; do
+#    echo -e "for_window [class=\"${window}\"] border pixel 0"
+#done

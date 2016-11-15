@@ -7,19 +7,20 @@
 - clean: ['~']
 
 - link:
-    ~/.zshrc:       .zshrc
-    ~/.zlogin:      .zlogin
-    ~/.i3:          i3
-    ~/.xinitrc:     .xinitrc
-    ~/.gitconfig:   .gitconfig
-    ~/.gtkrc-2.0:   .gtkrc-2.0
-    ~/.Xresources:  .Xresources
-    ~/.compton.conf: .compton.conf
-    ~/.vimrc:       .vimrc
-    ~/.config/ranger/rc.conf:           ranger/rc.conf
-    ~/.config/zathura/zathurarc:        zathurarc
-    ~/.config/terminator/config:        terminator/config
-    ~/.config/rofi/config:              rofi/config
+    ~/.Xresources:                      Xresources
+    ~/.compton.conf:                    compton.conf
+    ~/.config/gtk-3.0/settings.ini:     config/gtk-3.0/settings.ini
+    ~/.config/ranger/rc.conf:           config/ranger/rc.conf
+    ~/.config/rofi/config:              config/rofi/config
+    ~/.config/terminator/config:        config/terminator/config
+    ~/.config/zathura/zathurarc:        config/zathura/zathurarc
+    ~/.gitconfig:                       gitconfig
+    ~/.gtkrc-2.0:                       gtkrc-2.0
+    ~/.i3:                              i3
+    ~/.vimrc:                           vimrc
+    ~/.xinitrc:                         xinitrc
+    ~/.zlogin:                          zlogin
+    ~/.zshrc:                           zshrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
