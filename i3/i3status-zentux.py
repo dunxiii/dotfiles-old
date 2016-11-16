@@ -60,7 +60,9 @@ status.register("network",
 status.register("network",
         interface="wlp2s0",
         format_up="{essid}",
-        interval=5)
+        interval=5,
+        on_leftclick="connman-gtk",
+        on_rightclick="killall connman-gtk")
 
 '''
 status.register("runwatch",

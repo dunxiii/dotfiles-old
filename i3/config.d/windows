@@ -9,6 +9,7 @@ for_window [window_role="VPN"] move workspace VPN
 no_focus [window_role="VPN"]
 
 for_window [instance="Msgcompose"] floating enable
+for_window [instance="connman-gtk"] floating enable
 for_window [instance="Msgcompose"] resize set 800 600
 EOF
 
