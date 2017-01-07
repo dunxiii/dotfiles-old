@@ -76,11 +76,6 @@ status.register("shell",
         on_leftclick="pgrep insync || insync start",
         on_rightclick="insync quit")
 
-status.register("updates",
-        backends = [pacman.Pacman()],
-        format="Updates: {count}",
-        interval=1800)
-
 status.register("shell",
         command="docker ps | tail -n -1 | grep -v CREATED | wc --lines",
         format="DC: {output}")
